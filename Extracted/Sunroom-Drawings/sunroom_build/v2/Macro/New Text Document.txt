@@ -1,0 +1,47 @@
+import FreeCAD as App
+import Part
+
+# --- 1. Dimensions (from your macro) ---
+total_w, total_h, arch_h = 700.0, 2000.0, 350.0
+prof_w, prof_t = 10.0, 25.0
+inset_thickness = 25.0
+offset_val = -20.0
+half_w, side_h = total_w / 2, total_h - arch_h
+
+# --- 2. Geometry Creation (from source 1 & 2) ---
+p1, p2 = App.Vector(-half_w, 0, 0), App.Vector(half_w, 0, 0)
+p3, p4 = App.Vector(half_w, side_h, 0), App.Vector(-half_w, side_h, 0)
+p_mid = App.Vector(0, side_h + arch_h, 0) 
+
+e1, e2, e4 = Part.makeLine(p1, p2), Part.makeLine(p2, p3), Part.makeLine(p4, p1)
+e3 = Part.Arc(p3, p_mid, p4).toShape()
+path_wire = Part.Wire([e1, e2, e3, e4])
+
+# Generate Solids
+rect_pts = [p1, p1 + App.Vector(prof_w, 0, 0), p1 + App.Vector(prof_w, 0, prof_t), p1 + App.Vector(0, 0, prof_t), p1]
+profile_wire = Part.makePolygon(rect_pts)
+frame_solid = path_wire.makePipeShell([profile_wire], True, False, False)
+
+offset_wire = path_wire.makeOffset2D(offset_val, join=0)
+inset_solid = Part.Face(offset_wire).extrude(App.Vector(0, 0, inset_thickness))
+
+# --- 3. FIX: Manual OBJ Writing (Bypasses Mesh.export errors) ---
+def write_obj(filename, shapes):
+    with open(filename, 'w') as f:
+        v_offset = 1
+        for i, shape in enumerate(shapes):
+            f.write(f"o Object_{i}\n")
+            # Tessellate the shape: (vertices, facets)
+            verts, facets = shape.tessellate(0.1)
+            for v in verts:
+                f.write(f"v {v.x} {v.y} {v.z}\n")
+            for face in facets:
+                # OBJ indices are 1-based
+                f.write(f"f {face[0]+v_offset} {face[1]+v_offset} {face[2]+v_offset}\n")
+            v_offset += len(verts)
+
+# Run the manual export
+output_path = "RoundTopWindow.obj"
+print(f"Manually writing mesh data to {output_path}...")
+write_obj(output_path, [frame_solid, inset_solid])
+print("Export Finished.")

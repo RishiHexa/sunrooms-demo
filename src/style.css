@@ -1,0 +1,27 @@
+:root {
+  --brand: #2c4770;
+  --brand-hover: #1f3555;
+  --muted: #c9ced6;
+  --border: #e3e6ea;
+  --text: #1f2328;
+  --bg: #ffffff;
+  --panel: #f6f7f9;
+  font-family: Roboto, 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+}
+
+button {
+  font: inherit;
+}

@@ -1,0 +1,120 @@
+[
+ {
+  "parts": [
+   "65972"
+  ],
+  "text": "AS-65972 | OUTSIDE  | WALL CHANNEL | TOP AND BOT",
+  "targets": [
+   {
+    "member": 6,
+    "kind": "S",
+    "gap": 1.56
+   }
+  ]
+ },
+ {
+  "parts": [
+   "65972"
+  ],
+  "text": "AS-65972 | OUTSIDE  | WALL CHANNEL | TOP AND BOT",
+  "targets": [
+   {
+    "member": 11,
+    "kind": "V",
+    "gap": 2.13
+   }
+  ]
+ },
+ {
+  "parts": [
+   "65972"
+  ],
+  "text": "AS-65972 | OUTSIDE  | WALL CHANNEL | TOP AND BOT",
+  "targets": [
+   {
+    "member": 10,
+    "kind": "V",
+    "gap": 2.47
+   }
+  ]
+ },
+ {
+  "parts": [
+   "71760"
+  ],
+  "text": "AS-71760 INSIDE CORNER POST | ? INSIDE OUTSIDE CORNER POST",
+  "targets": [
+   {
+    "member": 6,
+    "kind": "S",
+    "gap": 21.93
+   }
+  ]
+ },
+ {
+  "parts": [
+   "65733",
+   "65734"
+  ],
+  "text": "AS-65733 OUTSIDE COMBO | AS-65734 INSIDE COMBO",
+  "targets": [
+   {
+    "member": 11,
+    "kind": "V",
+    "gap": 33.08
+   }
+  ]
+ },
+ {
+  "parts": [
+   "72551",
+   "72552"
+  ],
+  "text": "AS-72551 OUTSIDE MALE | AS-72552 INSIDE MALE",
+  "targets": [
+   {
+    "member": 6,
+    "kind": "S",
+    "gap": 31.94
+   },
+   {
+    "member": 9,
+    "kind": "V",
+    "gap": 1.75
+   }
+  ]
+ },
+ {
+  "parts": [
+   "72553",
+   "72554"
+  ],
+  "text": "AS-72553 OUTSIDE FEMALE | AS-72554 INSIDE FEMALE",
+  "targets": [
+   {
+    "member": 5,
+    "kind": "S",
+    "gap": 0.44
+   }
+  ]
+ },
+ {
+  "parts": [
+   "72553",
+   "72554"
+  ],
+  "text": "AS-72553 OUTSIDE FEMALE | AS-72554 INSIDE FEMALE",
+  "targets": [
+   {
+    "member": 11,
+    "kind": "V",
+    "gap": 0.84
+   },
+   {
+    "member": 7,
+    "kind": "S",
+    "gap": 0.56
+   }
+  ]
+ }
+]

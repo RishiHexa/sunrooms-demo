@@ -1,0 +1,472 @@
+{
+ "front_width": 216.0,
+ "depth": 144.0,
+ "h_low": 84.0,
+ "h_high": 96.0,
+ "members": [
+  {
+   "wall": "LEFT",
+   "tag": "M04",
+   "part": "A62420",
+   "start": [
+    0,
+    143.25,
+    0
+   ],
+   "end": [
+    0,
+    143.25,
+    96.0
+   ],
+   "note": "wall channel at house"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "M06",
+   "part": "A26952",
+   "start": [
+    0,
+    1.13,
+    0
+   ],
+   "end": [
+    0,
+    1.13,
+    84.0
+   ],
+   "note": "corner post at front"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "M05",
+   "part": "A26949",
+   "start": [
+    0,
+    69.0,
+    0
+   ],
+   "end": [
+    0,
+    69.0,
+    89.75
+   ],
+   "note": "mullion, panel 1|2"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "M01",
+   "part": "A62421",
+   "start": [
+    0,
+    144.0,
+    0
+   ],
+   "end": [
+    0,
+    0.0,
+    0
+   ],
+   "note": "bottom channel"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "M03",
+   "part": "A62421",
+   "start": [
+    0,
+    144.0,
+    96.0
+   ],
+   "end": [
+    0,
+    0.0,
+    84.0
+   ],
+   "note": "top channel, raked"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "M00",
+   "part": "A26948",
+   "start": [
+    0,
+    142.5,
+    79.5
+   ],
+   "end": [
+    0,
+    2.25,
+    79.5
+   ],
+   "note": "head / transom rail"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "S1",
+   "part": "A33863",
+   "start": [
+    0,
+    69.0,
+    24.0
+   ],
+   "end": [
+    0,
+    2.25,
+    24.0
+   ],
+   "note": "slider bottom sill"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "S2",
+   "part": "A33861",
+   "start": [
+    0,
+    69.0,
+    79.5
+   ],
+   "end": [
+    0,
+    2.25,
+    79.5
+   ],
+   "note": "slider top sill"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "S3",
+   "part": "A33864",
+   "start": [
+    0,
+    2.25,
+    24.0
+   ],
+   "end": [
+    0,
+    2.25,
+    79.5
+   ],
+   "note": "slider side track (corner end)"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "S4",
+   "part": "A45216",
+   "start": [
+    0,
+    69.0,
+    24.0
+   ],
+   "end": [
+    0,
+    69.0,
+    79.5
+   ],
+   "note": "slider locking side track (mullion end)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "M04",
+   "part": "A62420",
+   "start": [
+    216.0,
+    143.25,
+    0
+   ],
+   "end": [
+    216.0,
+    143.25,
+    96.0
+   ],
+   "note": "wall channel at house (mirrored)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "M06",
+   "part": "A26952",
+   "start": [
+    216.0,
+    1.13,
+    0
+   ],
+   "end": [
+    216.0,
+    1.13,
+    84.0
+   ],
+   "note": "corner post at front (mirrored)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "M05",
+   "part": "A26949",
+   "start": [
+    216.0,
+    69.0,
+    0
+   ],
+   "end": [
+    216.0,
+    69.0,
+    89.75
+   ],
+   "note": "mullion, panel 1|2 (mirrored)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "M01",
+   "part": "A62421",
+   "start": [
+    216.0,
+    144.0,
+    0
+   ],
+   "end": [
+    216.0,
+    0.0,
+    0
+   ],
+   "note": "bottom channel (mirrored)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "M03",
+   "part": "A62421",
+   "start": [
+    216.0,
+    144.0,
+    96.0
+   ],
+   "end": [
+    216.0,
+    0.0,
+    84.0
+   ],
+   "note": "top channel, raked (mirrored)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "M00",
+   "part": "A26948",
+   "start": [
+    216.0,
+    142.5,
+    79.5
+   ],
+   "end": [
+    216.0,
+    2.25,
+    79.5
+   ],
+   "note": "head / transom rail (mirrored)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "S1",
+   "part": "A33863",
+   "start": [
+    216.0,
+    69.0,
+    24.0
+   ],
+   "end": [
+    216.0,
+    2.25,
+    24.0
+   ],
+   "note": "slider bottom sill (mirrored)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "S2",
+   "part": "A33861",
+   "start": [
+    216.0,
+    69.0,
+    79.5
+   ],
+   "end": [
+    216.0,
+    2.25,
+    79.5
+   ],
+   "note": "slider top sill (mirrored)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "S3",
+   "part": "A33864",
+   "start": [
+    216.0,
+    2.25,
+    24.0
+   ],
+   "end": [
+    216.0,
+    2.25,
+    79.5
+   ],
+   "note": "slider side track (corner end) (mirrored)"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "S4",
+   "part": "A45216",
+   "start": [
+    216.0,
+    69.0,
+    24.0
+   ],
+   "end": [
+    216.0,
+    69.0,
+    79.5
+   ],
+   "note": "slider locking side track (mullion end) (mirrored)"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "M11",
+   "part": "A26952",
+   "start": [
+    0,
+    0,
+    0
+   ],
+   "end": [
+    0,
+    0,
+    84.0
+   ],
+   "note": "corner post left"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "M15",
+   "part": "A26952",
+   "start": [
+    216.0,
+    0,
+    0
+   ],
+   "end": [
+    216.0,
+    0,
+    84.0
+   ],
+   "note": "corner post right"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "M12",
+   "part": "A26949",
+   "start": [
+    55.125,
+    0,
+    0
+   ],
+   "end": [
+    55.125,
+    0,
+    84.0
+   ],
+   "note": "mullion 1"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "M13",
+   "part": "A26949",
+   "start": [
+    108.0,
+    0,
+    0
+   ],
+   "end": [
+    108.0,
+    0,
+    84.0
+   ],
+   "note": "mullion 2"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "M14",
+   "part": "A26949",
+   "start": [
+    160.875,
+    0,
+    0
+   ],
+   "end": [
+    160.875,
+    0,
+    84.0
+   ],
+   "note": "mullion 3"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "M07",
+   "part": "A62421",
+   "start": [
+    0,
+    0,
+    0
+   ],
+   "end": [
+    216.0,
+    0,
+    0
+   ],
+   "note": "bottom channel"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "M08",
+   "part": "A62421",
+   "start": [
+    0,
+    0,
+    84.0
+   ],
+   "end": [
+    216.0,
+    0,
+    84.0
+   ],
+   "note": "top channel"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "M09",
+   "part": "A26948",
+   "start": [
+    2.25,
+    0,
+    24.0
+   ],
+   "end": [
+    213.75,
+    0,
+    24.0
+   ],
+   "note": "rail below glass"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "M10",
+   "part": "A26948",
+   "start": [
+    2.25,
+    0,
+    79.5
+   ],
+   "end": [
+    213.75,
+    0,
+    79.5
+   ],
+   "note": "rail above glass"
+  }
+ ]
+}

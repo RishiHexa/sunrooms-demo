@@ -1,0 +1,71 @@
+# SliderSash225_Animate.FCMacro
+# Slides the interior (right-hand) sash open and closed in the 3D view.
+# Run SliderSash225_Build first. Re-running this macro while it plays stops it.
+# Optional: set RECORD_GIF = True to also write SliderSash225.gif into the Macro folder.
+import FreeCAD as App, FreeCADGui as Gui, math, os, tempfile
+from PySide import QtCore
+
+CYCLES     = 2        # open/close cycles to play
+SECONDS    = 3.0      # time to open (same to close)
+HOLD       = 1.0      # pause when fully open / closed, seconds
+FPS        = 30
+RECORD_GIF = False
+GIF_SIZE   = (960, 720)
+
+doc = App.getDocument('SliderSash225')
+sash = doc.getObject('InteriorSash')
+travel = sash.Travel
+base = App.Placement(sash.Placement)
+
+def ease(t):                                   # smooth start and stop
+    return 0.5 - 0.5 * math.cos(math.pi * t)
+
+# timeline: hold, open, hold, close  (per cycle)
+seg = [HOLD, SECONDS, HOLD, SECONDS]
+cycle_len = sum(seg)
+total = cycle_len * CYCLES
+def offset_at(t):
+    t = t % cycle_len
+    if t < seg[0]: return 0.0
+    t -= seg[0]
+    if t < seg[1]: return travel * ease(t / seg[1])
+    t -= seg[1]
+    if t < seg[2]: return travel
+    t -= seg[2]
+    return travel * (1 - ease(t / seg[3]))
+
+def set_offset(x):
+    p = App.Placement(base); p.Base = base.Base + App.Vector(-x, 0, 0)
+    sash.Placement = p
+    Gui.updateGui()
+
+if RECORD_GIF:
+    from PIL import Image
+    view = Gui.ActiveDocument.ActiveView
+    tmp = tempfile.mkdtemp(prefix='sash225_')
+    frames = []
+    n = int(cycle_len * 15)                    # one cycle at 15 fps is plenty for a GIF
+    for i in range(n):
+        set_offset(offset_at(i / 15.0))
+        f = os.path.join(tmp, f'f{i:04d}.png')
+        view.saveImage(f, GIF_SIZE[0], GIF_SIZE[1], 'Current')
+        frames.append(Image.open(f).convert('P', palette=Image.ADAPTIVE, colors=128))
+    out = os.path.join(App.getUserMacroDir(True), 'SliderSash225.gif')
+    frames[0].save(out, save_all=True, append_images=frames[1:], duration=int(1000 / 15), loop=0, optimize=True)
+    set_offset(0.0)
+    print('GIF written:', out)
+else:
+    old = getattr(App, '_sash225_timer', None)
+    if old is not None and old.isActive():      # second run = stop
+        old.stop(); set_offset(0.0); App._sash225_timer = None
+    else:
+        clock = {'t': 0.0}
+        timer = QtCore.QTimer()
+        def tick():
+            clock['t'] += 1.0 / FPS
+            if clock['t'] >= total:
+                timer.stop(); set_offset(0.0); return
+            set_offset(offset_at(clock['t']))
+        timer.timeout.connect(tick)
+        App._sash225_timer = timer
+        timer.start(int(1000 / FPS))

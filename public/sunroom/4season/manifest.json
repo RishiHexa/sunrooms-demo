@@ -1,0 +1,3471 @@
+{
+  "source": "public/raw_sunroom/Sunroom_4Season.glb",
+  "generatedBy": "scripts/split-sunroom-glb.mjs",
+  "sourceUnitsPerInch": 0.001,
+  "sourceModelIn": {
+    "frontWallPlaneZ": 0,
+    "leftWallPlaneX": 0,
+    "rightWallPlaneX": 216
+  },
+  "canonicalFrame": {
+    "units": "inch",
+    "up": "+Y",
+    "x": "along wall, left->right seen from outside",
+    "z": "wall depth, z=0 exterior reference plane, exterior +Z (kept from source)",
+    "origin": "bbox min X and min Y = 0"
+  },
+  "raw": [
+    {
+      "node": "CORNER CP_L CornerPost",
+      "file": "raw/corner-cp-l-cornerpost.glb",
+      "triangles": 328,
+      "bboxMinIn": [
+        0,
+        0.5446,
+        -5.125
+      ],
+      "sizeIn": [
+        5.125,
+        82.9109,
+        5.125
+      ]
+    },
+    {
+      "node": "CORNER CP_R CornerPost",
+      "file": "raw/corner-cp-r-cornerpost.glb",
+      "triangles": 328,
+      "bboxMinIn": [
+        210.875,
+        0.5446,
+        -5.125
+      ],
+      "sizeIn": [
+        5.125,
+        82.9109,
+        5.125
+      ]
+    },
+    {
+      "node": "CORNER IC_L InsideCorner",
+      "file": "raw/corner-ic-l-insidecorner.glb",
+      "triangles": 380,
+      "bboxMinIn": [
+        4.2177,
+        0.5446,
+        -5.041
+      ],
+      "sizeIn": [
+        0.8189,
+        82.9109,
+        0.8189
+      ]
+    },
+    {
+      "node": "CORNER IC_R InsideCorner",
+      "file": "raw/corner-ic-r-insidecorner.glb",
+      "triangles": 380,
+      "bboxMinIn": [
+        210.9634,
+        0.5446,
+        -5.041
+      ],
+      "sizeIn": [
+        0.8189,
+        82.9109,
+        0.8189
+      ]
+    },
+    {
+      "node": "FRONT BC T05",
+      "file": "raw/front-bc-t05.glb",
+      "triangles": 2008,
+      "bboxMinIn": [
+        -0.5174,
+        -0.0005,
+        -4.4082
+      ],
+      "sizeIn": [
+        217.0347,
+        1.36,
+        4.9256
+      ]
+    },
+    {
+      "node": "FRONT M0 T02",
+      "file": "raw/front-m0-t02.glb",
+      "triangles": 1576,
+      "bboxMinIn": [
+        4.5191,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        1.625,
+        82.9109,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT M5 T02",
+      "file": "raw/front-m5-t02.glb",
+      "triangles": 1576,
+      "bboxMinIn": [
+        209.8559,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        1.625,
+        82.9109,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT MU1_F T03",
+      "file": "raw/front-mu1-f-t03.glb",
+      "triangles": 1356,
+      "bboxMinIn": [
+        55.0096,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        1.834,
+        82.9109,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT MU1_M T02",
+      "file": "raw/front-mu1-m-t02.glb",
+      "triangles": 1576,
+      "bboxMinIn": [
+        56.1346,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        1.625,
+        82.9109,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT MU2_F T03",
+      "file": "raw/front-mu2-f-t03.glb",
+      "triangles": 1356,
+      "bboxMinIn": [
+        106.625,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        1.834,
+        82.9109,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT MU2_M T02",
+      "file": "raw/front-mu2-m-t02.glb",
+      "triangles": 1576,
+      "bboxMinIn": [
+        107.75,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        1.625,
+        82.9109,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT MU3_F T03",
+      "file": "raw/front-mu3-f-t03.glb",
+      "triangles": 1356,
+      "bboxMinIn": [
+        158.2404,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        1.834,
+        82.9109,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT MU3_M T02",
+      "file": "raw/front-mu3-m-t02.glb",
+      "triangles": 1576,
+      "bboxMinIn": [
+        159.3654,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        1.625,
+        82.9109,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P1_HHI T04",
+      "file": "raw/front-p1-hhi-t04.glb",
+      "triangles": 9196,
+      "bboxMinIn": [
+        5.5637,
+        78.9554,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P1_HLO T04",
+      "file": "raw/front-p1-hlo-t04.glb",
+      "triangles": 9240,
+      "bboxMinIn": [
+        5.5637,
+        22.3304,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P1_RCV_B T02",
+      "file": "raw/front-p1-rcv-b-t02.glb",
+      "triangles": 5682,
+      "bboxMinIn": [
+        5.5637,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P1_RCV_T T02",
+      "file": "raw/front-p1-rcv-t-t02.glb",
+      "triangles": 5454,
+      "bboxMinIn": [
+        5.5637,
+        81.8304,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P2_HHI T04",
+      "file": "raw/front-p2-hhi-t04.glb",
+      "triangles": 9154,
+      "bboxMinIn": [
+        57.1791,
+        78.9554,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P2_HLO T04",
+      "file": "raw/front-p2-hlo-t04.glb",
+      "triangles": 9244,
+      "bboxMinIn": [
+        57.1791,
+        22.3304,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P2_RCV_B T02",
+      "file": "raw/front-p2-rcv-b-t02.glb",
+      "triangles": 5496,
+      "bboxMinIn": [
+        57.1791,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P2_RCV_T T02",
+      "file": "raw/front-p2-rcv-t-t02.glb",
+      "triangles": 5670,
+      "bboxMinIn": [
+        57.1791,
+        81.8304,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P3_HHI T04",
+      "file": "raw/front-p3-hhi-t04.glb",
+      "triangles": 9130,
+      "bboxMinIn": [
+        108.7946,
+        78.9554,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P3_HLO T04",
+      "file": "raw/front-p3-hlo-t04.glb",
+      "triangles": 9142,
+      "bboxMinIn": [
+        108.7946,
+        22.3304,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P3_RCV_B T02",
+      "file": "raw/front-p3-rcv-b-t02.glb",
+      "triangles": 5571,
+      "bboxMinIn": [
+        108.7946,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P3_RCV_T T02",
+      "file": "raw/front-p3-rcv-t-t02.glb",
+      "triangles": 5355,
+      "bboxMinIn": [
+        108.7946,
+        81.8304,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P4_HHI T04",
+      "file": "raw/front-p4-hhi-t04.glb",
+      "triangles": 9148,
+      "bboxMinIn": [
+        160.41,
+        78.9554,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P4_HLO T04",
+      "file": "raw/front-p4-hlo-t04.glb",
+      "triangles": 9188,
+      "bboxMinIn": [
+        160.41,
+        22.3304,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P4_RCV_B T02",
+      "file": "raw/front-p4-rcv-b-t02.glb",
+      "triangles": 5376,
+      "bboxMinIn": [
+        160.41,
+        0.5446,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT P4_RCV_T T02",
+      "file": "raw/front-p4-rcv-t-t02.glb",
+      "triangles": 5400,
+      "bboxMinIn": [
+        160.41,
+        81.8304,
+        -4.3362
+      ],
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ]
+    },
+    {
+      "node": "FRONT TC T05",
+      "file": "raw/front-tc-t05.glb",
+      "triangles": 2004,
+      "bboxMinIn": [
+        -0.5174,
+        82.6405,
+        -4.4082
+      ],
+      "sizeIn": [
+        217.0347,
+        1.36,
+        4.9256
+      ]
+    },
+    {
+      "node": "LEFT BC T05",
+      "file": "raw/left-bc-t05.glb",
+      "triangles": 3594,
+      "bboxMinIn": [
+        -0.5174,
+        -0.0005,
+        -144
+      ],
+      "sizeIn": [
+        4.9256,
+        1.36,
+        144.5174
+      ]
+    },
+    {
+      "node": "LEFT M0 T02",
+      "file": "raw/left-m0-t02.glb",
+      "triangles": 1632,
+      "bboxMinIn": [
+        0.1538,
+        0.5446,
+        -6.1441
+      ],
+      "sizeIn": [
+        4.1824,
+        83.421,
+        1.625
+      ]
+    },
+    {
+      "node": "LEFT M3 T02",
+      "file": "raw/left-m3-t02.glb",
+      "triangles": 1582,
+      "bboxMinIn": [
+        0.1538,
+        0.5446,
+        -143.4554
+      ],
+      "sizeIn": [
+        4.1824,
+        94.8636,
+        1.625
+      ]
+    },
+    {
+      "node": "LEFT MU1_F T03",
+      "file": "raw/left-mu1-f-t03.glb",
+      "triangles": 1386,
+      "bboxMinIn": [
+        0.1538,
+        0.5446,
+        -74.4463
+      ],
+      "sizeIn": [
+        4.1824,
+        89.1128,
+        1.834
+      ]
+    },
+    {
+      "node": "LEFT MU1_M T02",
+      "file": "raw/left-mu1-m-t02.glb",
+      "triangles": 1594,
+      "bboxMinIn": [
+        0.1538,
+        0.5446,
+        -75.3623
+      ],
+      "sizeIn": [
+        4.1824,
+        89.1892,
+        1.625
+      ]
+    },
+    {
+      "node": "LEFT P1_HHI T04",
+      "file": "raw/left-p1-hhi-t04.glb",
+      "triangles": 8956,
+      "bboxMinIn": [
+        0.1538,
+        78.9554,
+        -73.1927
+      ],
+      "sizeIn": [
+        4.1824,
+        2.25,
+        67.629
+      ]
+    },
+    {
+      "node": "LEFT P1_HLO T04",
+      "file": "raw/left-p1-hlo-t04.glb",
+      "triangles": 9052,
+      "bboxMinIn": [
+        0.1538,
+        22.3304,
+        -73.1927
+      ],
+      "sizeIn": [
+        4.1824,
+        2.25,
+        67.629
+      ]
+    },
+    {
+      "node": "LEFT P1_RCV_B T02",
+      "file": "raw/left-p1-rcv-b-t02.glb",
+      "triangles": 5506,
+      "bboxMinIn": [
+        0.1538,
+        0.5446,
+        -73.1927
+      ],
+      "sizeIn": [
+        4.1824,
+        1.625,
+        67.629
+      ]
+    },
+    {
+      "node": "LEFT P1_RCV_T T02",
+      "file": "raw/left-p1-rcv-t-t02.glb",
+      "triangles": 5414,
+      "bboxMinIn": [
+        0.1538,
+        82.2956,
+        -73.1927
+      ],
+      "sizeIn": [
+        4.1824,
+        7.2573,
+        67.629
+      ]
+    },
+    {
+      "node": "LEFT P2_HHI T04",
+      "file": "raw/left-p2-hhi-t04.glb",
+      "triangles": 8956,
+      "bboxMinIn": [
+        0.1538,
+        78.9554,
+        -142.4109
+      ],
+      "sizeIn": [
+        4.1824,
+        2.25,
+        67.629
+      ]
+    },
+    {
+      "node": "LEFT P2_RCV_T T02",
+      "file": "raw/left-p2-rcv-t-t02.glb",
+      "triangles": 5166,
+      "bboxMinIn": [
+        0.1538,
+        88.0638,
+        -142.4109
+      ],
+      "sizeIn": [
+        4.1824,
+        7.2573,
+        67.629
+      ]
+    },
+    {
+      "node": "LEFT TC T05",
+      "file": "raw/left-tc-t05.glb",
+      "triangles": 2026,
+      "bboxMinIn": [
+        -0.5174,
+        82.646,
+        -144
+      ],
+      "sizeIn": [
+        4.9256,
+        13.3545,
+        144.5174
+      ]
+    },
+    {
+      "node": "LEFT WC T01",
+      "file": "raw/left-wc-t01.glb",
+      "triangles": 1320,
+      "bboxMinIn": [
+        0.1538,
+        0.5446,
+        -144.0005
+      ],
+      "sizeIn": [
+        4.1824,
+        94.909,
+        1.2541
+      ]
+    },
+    {
+      "node": "RIGHT BC T05",
+      "file": "raw/right-bc-t05.glb",
+      "triangles": 1882,
+      "bboxMinIn": [
+        211.5918,
+        -0.0005,
+        -144
+      ],
+      "sizeIn": [
+        4.9256,
+        1.36,
+        144.5174
+      ]
+    },
+    {
+      "node": "RIGHT M0 T02",
+      "file": "raw/right-m0-t02.glb",
+      "triangles": 1632,
+      "bboxMinIn": [
+        211.6638,
+        0.5446,
+        -6.1441
+      ],
+      "sizeIn": [
+        4.1824,
+        83.421,
+        1.625
+      ]
+    },
+    {
+      "node": "RIGHT M3 T02",
+      "file": "raw/right-m3-t02.glb",
+      "triangles": 1582,
+      "bboxMinIn": [
+        211.6638,
+        0.5446,
+        -143.4554
+      ],
+      "sizeIn": [
+        4.1824,
+        94.8636,
+        1.625
+      ]
+    },
+    {
+      "node": "RIGHT MU1_F T03",
+      "file": "raw/right-mu1-f-t03.glb",
+      "triangles": 1386,
+      "bboxMinIn": [
+        211.6638,
+        0.5446,
+        -74.4463
+      ],
+      "sizeIn": [
+        4.1824,
+        89.1128,
+        1.834
+      ]
+    },
+    {
+      "node": "RIGHT MU1_M T02",
+      "file": "raw/right-mu1-m-t02.glb",
+      "triangles": 1594,
+      "bboxMinIn": [
+        211.6638,
+        0.5446,
+        -75.3623
+      ],
+      "sizeIn": [
+        4.1824,
+        89.1892,
+        1.625
+      ]
+    },
+    {
+      "node": "RIGHT P1_HHI T04",
+      "file": "raw/right-p1-hhi-t04.glb",
+      "triangles": 9124,
+      "bboxMinIn": [
+        211.6638,
+        78.9554,
+        -73.1927
+      ],
+      "sizeIn": [
+        4.1824,
+        2.25,
+        67.629
+      ]
+    },
+    {
+      "node": "RIGHT P1_HLO T04",
+      "file": "raw/right-p1-hlo-t04.glb",
+      "triangles": 8962,
+      "bboxMinIn": [
+        211.6638,
+        22.3304,
+        -73.1927
+      ],
+      "sizeIn": [
+        4.1824,
+        2.25,
+        67.629
+      ]
+    },
+    {
+      "node": "RIGHT P1_RCV_B T02",
+      "file": "raw/right-p1-rcv-b-t02.glb",
+      "triangles": 5512,
+      "bboxMinIn": [
+        211.6638,
+        0.5446,
+        -73.1927
+      ],
+      "sizeIn": [
+        4.1824,
+        1.625,
+        67.629
+      ]
+    },
+    {
+      "node": "RIGHT P1_RCV_T T02",
+      "file": "raw/right-p1-rcv-t-t02.glb",
+      "triangles": 5428,
+      "bboxMinIn": [
+        211.6638,
+        82.2956,
+        -73.1927
+      ],
+      "sizeIn": [
+        4.1824,
+        7.2573,
+        67.629
+      ]
+    },
+    {
+      "node": "RIGHT P2_HHI T04",
+      "file": "raw/right-p2-hhi-t04.glb",
+      "triangles": 8968,
+      "bboxMinIn": [
+        211.6638,
+        78.9554,
+        -142.4109
+      ],
+      "sizeIn": [
+        4.1824,
+        2.25,
+        67.629
+      ]
+    },
+    {
+      "node": "RIGHT P2_HLO T04",
+      "file": "raw/right-p2-hlo-t04.glb",
+      "triangles": 8956,
+      "bboxMinIn": [
+        211.6638,
+        22.3304,
+        -142.4109
+      ],
+      "sizeIn": [
+        4.1824,
+        2.25,
+        67.629
+      ]
+    },
+    {
+      "node": "RIGHT P2_RCV_B T02",
+      "file": "raw/right-p2-rcv-b-t02.glb",
+      "triangles": 5224,
+      "bboxMinIn": [
+        211.6638,
+        0.5446,
+        -142.4109
+      ],
+      "sizeIn": [
+        4.1824,
+        1.625,
+        67.629
+      ]
+    },
+    {
+      "node": "RIGHT P2_RCV_T T02",
+      "file": "raw/right-p2-rcv-t-t02.glb",
+      "triangles": 5238,
+      "bboxMinIn": [
+        211.6638,
+        88.0638,
+        -142.4109
+      ],
+      "sizeIn": [
+        4.1824,
+        7.2573,
+        67.629
+      ]
+    },
+    {
+      "node": "RIGHT TC T05",
+      "file": "raw/right-tc-t05.glb",
+      "triangles": 2026,
+      "bboxMinIn": [
+        211.5918,
+        82.646,
+        -144
+      ],
+      "sizeIn": [
+        4.9256,
+        13.3545,
+        144.5174
+      ]
+    },
+    {
+      "node": "RIGHT WC T01",
+      "file": "raw/right-wc-t01.glb",
+      "triangles": 1320,
+      "bboxMinIn": [
+        211.6638,
+        0.5446,
+        -144.0005
+      ],
+      "sizeIn": [
+        4.1824,
+        94.909,
+        1.2541
+      ]
+    },
+    {
+      "node": "ROOF BackChannel",
+      "file": "raw/roof-backchannel.glb",
+      "triangles": 640,
+      "bboxMinIn": [
+        -16,
+        95.7658,
+        -144.2111
+      ],
+      "sizeIn": [
+        248,
+        4.8191,
+        3.664
+      ]
+    },
+    {
+      "node": "ROOF FasciaL",
+      "file": "raw/roof-fascial.glb",
+      "triangles": 1166,
+      "bboxMinIn": [
+        -16.2922,
+        81.6547,
+        -144
+      ],
+      "sizeIn": [
+        1.115,
+        18.944,
+        171.8519
+      ]
+    },
+    {
+      "node": "ROOF FasciaR",
+      "file": "raw/roof-fasciar.glb",
+      "triangles": 1166,
+      "bboxMinIn": [
+        231.1773,
+        81.6547,
+        -144
+      ],
+      "sizeIn": [
+        1.115,
+        18.944,
+        171.8519
+      ]
+    },
+    {
+      "node": "ROOF Gutter",
+      "file": "raw/roof-gutter.glb",
+      "triangles": 1216,
+      "bboxMinIn": [
+        -16,
+        81.7235,
+        22.7246
+      ],
+      "sizeIn": [
+        248,
+        4.5276,
+        5.0457
+      ]
+    },
+    {
+      "node": "ROOF P1 Foam",
+      "file": "raw/roof-p1-foam.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        -16,
+        82.0808,
+        -143.5851
+      ],
+      "sizeIn": [
+        46.3125,
+        17.902,
+        167.9152
+      ]
+    },
+    {
+      "node": "ROOF P1 SkinBottom",
+      "file": "raw/roof-p1-skinbottom.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        -16,
+        82.0559,
+        -143.5872
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P1 SkinTop",
+      "file": "raw/roof-p1-skintop.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        -16,
+        86.0172,
+        -143.2571
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P2 Foam",
+      "file": "raw/roof-p2-foam.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        30.3125,
+        82.0808,
+        -143.5851
+      ],
+      "sizeIn": [
+        46.3125,
+        17.902,
+        167.9152
+      ]
+    },
+    {
+      "node": "ROOF P2 SkinBottom",
+      "file": "raw/roof-p2-skinbottom.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        30.3125,
+        82.0559,
+        -143.5872
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P2 SkinTop",
+      "file": "raw/roof-p2-skintop.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        30.3125,
+        86.0172,
+        -143.2571
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P3 Foam",
+      "file": "raw/roof-p3-foam.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        76.625,
+        82.0808,
+        -143.5851
+      ],
+      "sizeIn": [
+        46.3125,
+        17.902,
+        167.9152
+      ]
+    },
+    {
+      "node": "ROOF P3 SkinBottom",
+      "file": "raw/roof-p3-skinbottom.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        76.625,
+        82.0559,
+        -143.5872
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P3 SkinTop",
+      "file": "raw/roof-p3-skintop.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        76.625,
+        86.0172,
+        -143.2571
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P4 Foam",
+      "file": "raw/roof-p4-foam.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        122.9375,
+        82.0808,
+        -143.5851
+      ],
+      "sizeIn": [
+        46.3125,
+        17.902,
+        167.9152
+      ]
+    },
+    {
+      "node": "ROOF P4 SkinBottom",
+      "file": "raw/roof-p4-skinbottom.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        122.9375,
+        82.0559,
+        -143.5872
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P4 SkinTop",
+      "file": "raw/roof-p4-skintop.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        122.9375,
+        86.0172,
+        -143.2571
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P5 Foam",
+      "file": "raw/roof-p5-foam.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        169.25,
+        82.0808,
+        -143.5851
+      ],
+      "sizeIn": [
+        46.3125,
+        17.902,
+        167.9152
+      ]
+    },
+    {
+      "node": "ROOF P5 SkinBottom",
+      "file": "raw/roof-p5-skinbottom.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        169.25,
+        82.0559,
+        -143.5872
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P5 SkinTop",
+      "file": "raw/roof-p5-skintop.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        169.25,
+        86.0172,
+        -143.2571
+      ],
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P6 Foam",
+      "file": "raw/roof-p6-foam.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        215.5625,
+        82.0808,
+        -143.5851
+      ],
+      "sizeIn": [
+        16.4375,
+        17.902,
+        167.9152
+      ]
+    },
+    {
+      "node": "ROOF P6 SkinBottom",
+      "file": "raw/roof-p6-skinbottom.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        215.5625,
+        82.0559,
+        -143.5872
+      ],
+      "sizeIn": [
+        16.4375,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF P6 SkinTop",
+      "file": "raw/roof-p6-skintop.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        215.5625,
+        86.0172,
+        -143.2571
+      ],
+      "sizeIn": [
+        16.4375,
+        13.9905,
+        167.5893
+      ]
+    },
+    {
+      "node": "ROOF Seam1",
+      "file": "raw/roof-seam1.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        30.2625,
+        86.1252,
+        -140.2654
+      ],
+      "sizeIn": [
+        0.1,
+        14.63,
+        163.6841
+      ]
+    },
+    {
+      "node": "ROOF Seam2",
+      "file": "raw/roof-seam2.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        76.575,
+        86.1252,
+        -140.2654
+      ],
+      "sizeIn": [
+        0.1,
+        14.63,
+        163.6841
+      ]
+    },
+    {
+      "node": "ROOF Seam3",
+      "file": "raw/roof-seam3.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        122.8875,
+        86.1252,
+        -140.2654
+      ],
+      "sizeIn": [
+        0.1,
+        14.63,
+        163.6841
+      ]
+    },
+    {
+      "node": "ROOF Seam4",
+      "file": "raw/roof-seam4.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        169.2,
+        86.1252,
+        -140.2654
+      ],
+      "sizeIn": [
+        0.1,
+        14.63,
+        163.6841
+      ]
+    },
+    {
+      "node": "ROOF Seam5",
+      "file": "raw/roof-seam5.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        215.5125,
+        86.1252,
+        -140.2654
+      ],
+      "sizeIn": [
+        0.1,
+        14.63,
+        163.6841
+      ]
+    },
+    {
+      "node": "ROOF Wedge",
+      "file": "raw/roof-wedge.glb",
+      "triangles": 12,
+      "bboxMinIn": [
+        0,
+        84,
+        -4.4082
+      ],
+      "sizeIn": [
+        216,
+        0.4233,
+        4.4082
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "corner-post",
+      "file": "parts/corner-post.glb",
+      "sourceNode": "CORNER CP_L CornerPost",
+      "frame": "front",
+      "lengthAxis": "y",
+      "sizeIn": [
+        5.125,
+        82.9109,
+        5.125
+      ],
+      "zRangeIn": [
+        -5.125,
+        0
+      ],
+      "sourceOffsetIn": [
+        0,
+        0.5446
+      ],
+      "triangles": 328,
+      "material": "mat_0",
+      "instances": [
+        {
+          "node": "CORNER CP_L CornerPost",
+          "frame": "front",
+          "sourceOffsetIn": [
+            0,
+            0.5446
+          ],
+          "sizeIn": [
+            5.125,
+            82.9109,
+            5.125
+          ],
+          "zRangeIn": [
+            -5.125,
+            0
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "CORNER CP_R CornerPost",
+          "frame": "front",
+          "sourceOffsetIn": [
+            210.875,
+            0.5446
+          ],
+          "sizeIn": [
+            5.125,
+            82.9109,
+            5.125
+          ],
+          "zRangeIn": [
+            -5.125,
+            0
+          ],
+          "match": "mirrored-x",
+          "shapeDistanceIn": 0
+        }
+      ]
+    },
+    {
+      "id": "inside-corner",
+      "file": "parts/inside-corner.glb",
+      "sourceNode": "CORNER IC_L InsideCorner",
+      "frame": "front",
+      "lengthAxis": "y",
+      "sizeIn": [
+        0.8189,
+        82.9109,
+        0.8189
+      ],
+      "zRangeIn": [
+        -5.041,
+        -4.2221
+      ],
+      "sourceOffsetIn": [
+        4.2177,
+        0.5446
+      ],
+      "triangles": 380,
+      "material": "mat_1",
+      "instances": [
+        {
+          "node": "CORNER IC_L InsideCorner",
+          "frame": "front",
+          "sourceOffsetIn": [
+            4.2177,
+            0.5446
+          ],
+          "sizeIn": [
+            0.8189,
+            82.9109,
+            0.8189
+          ],
+          "zRangeIn": [
+            -5.041,
+            -4.2221
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "CORNER IC_R InsideCorner",
+          "frame": "front",
+          "sourceOffsetIn": [
+            210.9634,
+            0.5446
+          ],
+          "sizeIn": [
+            0.8189,
+            82.9109,
+            0.8189
+          ],
+          "zRangeIn": [
+            -5.041,
+            -4.2221
+          ],
+          "match": "mirrored-x",
+          "shapeDistanceIn": 0
+        }
+      ]
+    },
+    {
+      "id": "t01-wall-channel",
+      "file": "parts/t01-wall-channel.glb",
+      "sourceNode": "LEFT WC T01",
+      "frame": "left",
+      "lengthAxis": "y",
+      "sizeIn": [
+        1.2541,
+        94.909,
+        4.1824
+      ],
+      "zRangeIn": [
+        -4.3362,
+        -0.1538
+      ],
+      "sourceOffsetIn": [
+        -144.0005,
+        0.5446
+      ],
+      "triangles": 1320,
+      "material": "mat_4",
+      "instances": [
+        {
+          "node": "LEFT WC T01",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -144.0005,
+            0.5446
+          ],
+          "sizeIn": [
+            1.2541,
+            94.909,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "RIGHT WC T01",
+          "frame": "right",
+          "sourceOffsetIn": [
+            142.7464,
+            0.5446
+          ],
+          "sizeIn": [
+            1.2541,
+            94.909,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "mirrored-x",
+          "shapeDistanceIn": 0.0134
+        }
+      ]
+    },
+    {
+      "id": "t02-vertical-male",
+      "file": "parts/t02-vertical-male.glb",
+      "sourceNode": "FRONT MU1_M T02",
+      "frame": "front",
+      "lengthAxis": "y",
+      "sizeIn": [
+        1.625,
+        82.9109,
+        4.1824
+      ],
+      "zRangeIn": [
+        -4.3362,
+        -0.1538
+      ],
+      "sourceOffsetIn": [
+        56.1346,
+        0.5446
+      ],
+      "triangles": 1576,
+      "material": "mat_2",
+      "instances": [
+        {
+          "node": "FRONT M0 T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            4.5191,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            82.9109,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT M5 T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            209.8559,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            82.9109,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "mirrored-x",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT MU1_M T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            56.1346,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            82.9109,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT MU2_M T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            107.75,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            82.9109,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT MU3_M T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            159.3654,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            82.9109,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "LEFT M0 T02",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -6.1441,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            83.421,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 83.421
+        },
+        {
+          "node": "LEFT M3 T02",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -143.4554,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            94.8636,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 94.8636
+        },
+        {
+          "node": "LEFT MU1_M T02",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -75.3623,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            89.1892,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 89.1892
+        },
+        {
+          "node": "RIGHT M0 T02",
+          "frame": "right",
+          "sourceOffsetIn": [
+            4.5191,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            83.421,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 83.421
+        },
+        {
+          "node": "RIGHT M3 T02",
+          "frame": "right",
+          "sourceOffsetIn": [
+            141.8304,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            94.8636,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 94.8636
+        },
+        {
+          "node": "RIGHT MU1_M T02",
+          "frame": "right",
+          "sourceOffsetIn": [
+            73.7373,
+            0.5446
+          ],
+          "sizeIn": [
+            1.625,
+            89.1892,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 89.1892
+        }
+      ]
+    },
+    {
+      "id": "t03-vertical-female",
+      "file": "parts/t03-vertical-female.glb",
+      "sourceNode": "FRONT MU1_F T03",
+      "frame": "front",
+      "lengthAxis": "y",
+      "sizeIn": [
+        1.834,
+        82.9109,
+        4.1824
+      ],
+      "zRangeIn": [
+        -4.3362,
+        -0.1538
+      ],
+      "sourceOffsetIn": [
+        55.0096,
+        0.5446
+      ],
+      "triangles": 1356,
+      "material": "mat_3",
+      "instances": [
+        {
+          "node": "FRONT MU1_F T03",
+          "frame": "front",
+          "sourceOffsetIn": [
+            55.0096,
+            0.5446
+          ],
+          "sizeIn": [
+            1.834,
+            82.9109,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT MU2_F T03",
+          "frame": "front",
+          "sourceOffsetIn": [
+            106.625,
+            0.5446
+          ],
+          "sizeIn": [
+            1.834,
+            82.9109,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT MU3_F T03",
+          "frame": "front",
+          "sourceOffsetIn": [
+            158.2404,
+            0.5446
+          ],
+          "sizeIn": [
+            1.834,
+            82.9109,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "LEFT MU1_F T03",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -74.4463,
+            0.5446
+          ],
+          "sizeIn": [
+            1.834,
+            89.1128,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 89.1128
+        },
+        {
+          "node": "RIGHT MU1_F T03",
+          "frame": "right",
+          "sourceOffsetIn": [
+            72.6123,
+            0.5446
+          ],
+          "sizeIn": [
+            1.834,
+            89.1128,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 89.1128
+        }
+      ]
+    },
+    {
+      "id": "t02-receiver-bottom",
+      "file": "parts/t02-receiver-bottom.glb",
+      "sourceNode": "FRONT P1_RCV_B T02",
+      "frame": "front",
+      "lengthAxis": "x",
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ],
+      "zRangeIn": [
+        -4.3362,
+        -0.1538
+      ],
+      "sourceOffsetIn": [
+        5.5637,
+        0.5446
+      ],
+      "triangles": 5682,
+      "material": "mat_2",
+      "instances": [
+        {
+          "node": "FRONT P1_RCV_B T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            5.5637,
+            0.5446
+          ],
+          "sizeIn": [
+            50.0263,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT P2_RCV_B T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            57.1791,
+            0.5446
+          ],
+          "sizeIn": [
+            50.0263,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        },
+        {
+          "node": "FRONT P3_RCV_B T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            108.7946,
+            0.5446
+          ],
+          "sizeIn": [
+            50.0263,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        },
+        {
+          "node": "FRONT P4_RCV_B T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            160.41,
+            0.5446
+          ],
+          "sizeIn": [
+            50.0263,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        },
+        {
+          "node": "LEFT P1_RCV_B T02",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -73.1927,
+            0.5446
+          ],
+          "sizeIn": [
+            67.629,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        },
+        {
+          "node": "RIGHT P1_RCV_B T02",
+          "frame": "right",
+          "sourceOffsetIn": [
+            5.5637,
+            0.5446
+          ],
+          "sizeIn": [
+            67.629,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        },
+        {
+          "node": "RIGHT P2_RCV_B T02",
+          "frame": "right",
+          "sourceOffsetIn": [
+            74.7818,
+            0.5446
+          ],
+          "sizeIn": [
+            67.629,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        }
+      ]
+    },
+    {
+      "id": "t02-receiver-top",
+      "file": "parts/t02-receiver-top.glb",
+      "sourceNode": "FRONT P1_RCV_T T02",
+      "frame": "front",
+      "lengthAxis": "x",
+      "sizeIn": [
+        50.0263,
+        1.625,
+        4.1824
+      ],
+      "zRangeIn": [
+        -4.3362,
+        -0.1538
+      ],
+      "sourceOffsetIn": [
+        5.5637,
+        81.8304
+      ],
+      "triangles": 5454,
+      "material": "mat_2",
+      "instances": [
+        {
+          "node": "FRONT P1_RCV_T T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            5.5637,
+            81.8304
+          ],
+          "sizeIn": [
+            50.0263,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT P2_RCV_T T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            57.1791,
+            81.8304
+          ],
+          "sizeIn": [
+            50.0263,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        },
+        {
+          "node": "FRONT P3_RCV_T T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            108.7946,
+            81.8304
+          ],
+          "sizeIn": [
+            50.0263,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        },
+        {
+          "node": "FRONT P4_RCV_T T02",
+          "frame": "front",
+          "sourceOffsetIn": [
+            160.41,
+            81.8304
+          ],
+          "sizeIn": [
+            50.0263,
+            1.625,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        }
+      ]
+    },
+    {
+      "id": "t04-horizontal-high",
+      "file": "parts/t04-horizontal-high.glb",
+      "sourceNode": "FRONT P1_HHI T04",
+      "frame": "front",
+      "lengthAxis": "x",
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ],
+      "zRangeIn": [
+        -4.3362,
+        -0.1538
+      ],
+      "sourceOffsetIn": [
+        5.5637,
+        78.9554
+      ],
+      "triangles": 9196,
+      "material": "mat_5",
+      "instances": [
+        {
+          "node": "FRONT P1_HHI T04",
+          "frame": "front",
+          "sourceOffsetIn": [
+            5.5637,
+            78.9554
+          ],
+          "sizeIn": [
+            50.0263,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT P2_HHI T04",
+          "frame": "front",
+          "sourceOffsetIn": [
+            57.1791,
+            78.9554
+          ],
+          "sizeIn": [
+            50.0263,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        },
+        {
+          "node": "FRONT P3_HHI T04",
+          "frame": "front",
+          "sourceOffsetIn": [
+            108.7946,
+            78.9554
+          ],
+          "sizeIn": [
+            50.0263,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0056
+        },
+        {
+          "node": "FRONT P4_HHI T04",
+          "frame": "front",
+          "sourceOffsetIn": [
+            160.41,
+            78.9554
+          ],
+          "sizeIn": [
+            50.0263,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        },
+        {
+          "node": "LEFT P1_HHI T04",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -73.1927,
+            78.9554
+          ],
+          "sizeIn": [
+            67.629,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        },
+        {
+          "node": "LEFT P2_HHI T04",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -142.4109,
+            78.9554
+          ],
+          "sizeIn": [
+            67.629,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        },
+        {
+          "node": "RIGHT P1_HHI T04",
+          "frame": "right",
+          "sourceOffsetIn": [
+            5.5637,
+            78.9554
+          ],
+          "sizeIn": [
+            67.629,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        },
+        {
+          "node": "RIGHT P2_HHI T04",
+          "frame": "right",
+          "sourceOffsetIn": [
+            74.7818,
+            78.9554
+          ],
+          "sizeIn": [
+            67.629,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        }
+      ]
+    },
+    {
+      "id": "t04-horizontal-low",
+      "file": "parts/t04-horizontal-low.glb",
+      "sourceNode": "FRONT P1_HLO T04",
+      "frame": "front",
+      "lengthAxis": "x",
+      "sizeIn": [
+        50.0263,
+        2.25,
+        4.1824
+      ],
+      "zRangeIn": [
+        -4.3362,
+        -0.1538
+      ],
+      "sourceOffsetIn": [
+        5.5637,
+        22.3304
+      ],
+      "triangles": 9240,
+      "material": "mat_5",
+      "instances": [
+        {
+          "node": "FRONT P1_HLO T04",
+          "frame": "front",
+          "sourceOffsetIn": [
+            5.5637,
+            22.3304
+          ],
+          "sizeIn": [
+            50.0263,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "FRONT P2_HLO T04",
+          "frame": "front",
+          "sourceOffsetIn": [
+            57.1791,
+            22.3304
+          ],
+          "sizeIn": [
+            50.0263,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        },
+        {
+          "node": "FRONT P3_HLO T04",
+          "frame": "front",
+          "sourceOffsetIn": [
+            108.7946,
+            22.3304
+          ],
+          "sizeIn": [
+            50.0263,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0056
+        },
+        {
+          "node": "FRONT P4_HLO T04",
+          "frame": "front",
+          "sourceOffsetIn": [
+            160.41,
+            22.3304
+          ],
+          "sizeIn": [
+            50.0263,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0.0049
+        },
+        {
+          "node": "LEFT P1_HLO T04",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -73.1927,
+            22.3304
+          ],
+          "sizeIn": [
+            67.629,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        },
+        {
+          "node": "RIGHT P1_HLO T04",
+          "frame": "right",
+          "sourceOffsetIn": [
+            5.5637,
+            22.3304
+          ],
+          "sizeIn": [
+            67.629,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        },
+        {
+          "node": "RIGHT P2_HLO T04",
+          "frame": "right",
+          "sourceOffsetIn": [
+            74.7818,
+            22.3304
+          ],
+          "sizeIn": [
+            67.629,
+            2.25,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same-profile",
+          "lengthIn": 67.629
+        }
+      ]
+    },
+    {
+      "id": "t05-bottom-channel",
+      "file": "parts/t05-bottom-channel.glb",
+      "sourceNode": "FRONT BC T05",
+      "frame": "front",
+      "lengthAxis": "x",
+      "sizeIn": [
+        217.0347,
+        1.36,
+        4.9256
+      ],
+      "zRangeIn": [
+        -4.4082,
+        0.5174
+      ],
+      "sourceOffsetIn": [
+        -0.5174,
+        -0.0005
+      ],
+      "triangles": 2008,
+      "material": "mat_6",
+      "instances": [
+        {
+          "node": "FRONT BC T05",
+          "frame": "front",
+          "sourceOffsetIn": [
+            -0.5174,
+            -0.0005
+          ],
+          "sizeIn": [
+            217.0347,
+            1.36,
+            4.9256
+          ],
+          "zRangeIn": [
+            -4.4082,
+            0.5174
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "LEFT BC T05",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -144,
+            -0.0005
+          ],
+          "sizeIn": [
+            144.5174,
+            1.36,
+            4.9256
+          ],
+          "zRangeIn": [
+            -4.4082,
+            0.5174
+          ],
+          "match": "same-profile",
+          "lengthIn": 144.5174
+        },
+        {
+          "node": "RIGHT BC T05",
+          "frame": "right",
+          "sourceOffsetIn": [
+            -0.5174,
+            -0.0005
+          ],
+          "sizeIn": [
+            144.5174,
+            1.36,
+            4.9256
+          ],
+          "zRangeIn": [
+            -4.4082,
+            0.5174
+          ],
+          "match": "same-profile",
+          "lengthIn": 144.5174
+        }
+      ]
+    },
+    {
+      "id": "t05-top-channel",
+      "file": "parts/t05-top-channel.glb",
+      "sourceNode": "FRONT TC T05",
+      "frame": "front",
+      "lengthAxis": "x",
+      "sizeIn": [
+        217.0347,
+        1.36,
+        4.9256
+      ],
+      "zRangeIn": [
+        -4.4082,
+        0.5174
+      ],
+      "sourceOffsetIn": [
+        -0.5174,
+        82.6405
+      ],
+      "triangles": 2004,
+      "material": "mat_6",
+      "instances": [
+        {
+          "node": "FRONT TC T05",
+          "frame": "front",
+          "sourceOffsetIn": [
+            -0.5174,
+            82.6405
+          ],
+          "sizeIn": [
+            217.0347,
+            1.36,
+            4.9256
+          ],
+          "zRangeIn": [
+            -4.4082,
+            0.5174
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        }
+      ]
+    },
+    {
+      "id": "t05-top-channel-raked",
+      "file": "parts/t05-top-channel-raked.glb",
+      "sourceNode": "LEFT TC T05",
+      "frame": "left",
+      "lengthAxis": "x",
+      "sizeIn": [
+        144.5174,
+        13.3545,
+        4.9256
+      ],
+      "zRangeIn": [
+        -4.4082,
+        0.5174
+      ],
+      "sourceOffsetIn": [
+        -144,
+        82.646
+      ],
+      "triangles": 2026,
+      "material": "mat_6",
+      "instances": [
+        {
+          "node": "LEFT TC T05",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -144,
+            82.646
+          ],
+          "sizeIn": [
+            144.5174,
+            13.3545,
+            4.9256
+          ],
+          "zRangeIn": [
+            -4.4082,
+            0.5174
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "RIGHT TC T05",
+          "frame": "right",
+          "sourceOffsetIn": [
+            -0.5174,
+            82.646
+          ],
+          "sizeIn": [
+            144.5174,
+            13.3545,
+            4.9256
+          ],
+          "zRangeIn": [
+            -4.4082,
+            0.5174
+          ],
+          "match": "different",
+          "shapeDistanceIn": null
+        }
+      ]
+    },
+    {
+      "id": "t02-receiver-top-raked",
+      "file": "parts/t02-receiver-top-raked.glb",
+      "sourceNode": "LEFT P1_RCV_T T02",
+      "frame": "left",
+      "lengthAxis": "x",
+      "sizeIn": [
+        67.629,
+        7.2573,
+        4.1824
+      ],
+      "zRangeIn": [
+        -4.3362,
+        -0.1538
+      ],
+      "sourceOffsetIn": [
+        -73.1927,
+        82.2956
+      ],
+      "triangles": 5414,
+      "material": "mat_2",
+      "instances": [
+        {
+          "node": "LEFT P1_RCV_T T02",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -73.1927,
+            82.2956
+          ],
+          "sizeIn": [
+            67.629,
+            7.2573,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "LEFT P2_RCV_T T02",
+          "frame": "left",
+          "sourceOffsetIn": [
+            -142.4109,
+            88.0638
+          ],
+          "sizeIn": [
+            67.629,
+            7.2573,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "different",
+          "shapeDistanceIn": null
+        },
+        {
+          "node": "RIGHT P1_RCV_T T02",
+          "frame": "right",
+          "sourceOffsetIn": [
+            5.5637,
+            82.2956
+          ],
+          "sizeIn": [
+            67.629,
+            7.2573,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "mirrored-x",
+          "shapeDistanceIn": 0.012
+        },
+        {
+          "node": "RIGHT P2_RCV_T T02",
+          "frame": "right",
+          "sourceOffsetIn": [
+            74.7818,
+            88.0638
+          ],
+          "sizeIn": [
+            67.629,
+            7.2573,
+            4.1824
+          ],
+          "zRangeIn": [
+            -4.3362,
+            -0.1538
+          ],
+          "match": "different",
+          "shapeDistanceIn": null
+        }
+      ]
+    },
+    {
+      "id": "roof-panel-foam",
+      "file": "parts/roof-panel-foam.glb",
+      "sourceNode": "ROOF P1 Foam",
+      "frame": "roof",
+      "lengthAxis": "z",
+      "sizeIn": [
+        46.3125,
+        17.902,
+        167.9152
+      ],
+      "zRangeIn": [
+        -143.5851,
+        24.3301
+      ],
+      "sourceOffsetIn": [
+        -16,
+        82.0808
+      ],
+      "triangles": 12,
+      "material": "mat_9",
+      "instances": [
+        {
+          "node": "ROOF P1 Foam",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            -16,
+            82.0808
+          ],
+          "sizeIn": [
+            46.3125,
+            17.902,
+            167.9152
+          ],
+          "zRangeIn": [
+            -143.5851,
+            24.3301
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P2 Foam",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            30.3125,
+            82.0808
+          ],
+          "sizeIn": [
+            46.3125,
+            17.902,
+            167.9152
+          ],
+          "zRangeIn": [
+            -143.5851,
+            24.3301
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P3 Foam",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            76.625,
+            82.0808
+          ],
+          "sizeIn": [
+            46.3125,
+            17.902,
+            167.9152
+          ],
+          "zRangeIn": [
+            -143.5851,
+            24.3301
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P4 Foam",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            122.9375,
+            82.0808
+          ],
+          "sizeIn": [
+            46.3125,
+            17.902,
+            167.9152
+          ],
+          "zRangeIn": [
+            -143.5851,
+            24.3301
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P5 Foam",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            169.25,
+            82.0808
+          ],
+          "sizeIn": [
+            46.3125,
+            17.902,
+            167.9152
+          ],
+          "zRangeIn": [
+            -143.5851,
+            24.3301
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P6 Foam",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            215.5625,
+            82.0808
+          ],
+          "sizeIn": [
+            16.4375,
+            17.902,
+            167.9152
+          ],
+          "zRangeIn": [
+            -143.5851,
+            24.3301
+          ],
+          "match": "different"
+        }
+      ]
+    },
+    {
+      "id": "roof-panel-skin-top",
+      "file": "parts/roof-panel-skin-top.glb",
+      "sourceNode": "ROOF P1 SkinTop",
+      "frame": "roof",
+      "lengthAxis": "z",
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ],
+      "zRangeIn": [
+        -143.2571,
+        24.3322
+      ],
+      "sourceOffsetIn": [
+        -16,
+        86.0172
+      ],
+      "triangles": 12,
+      "material": "mat_8",
+      "instances": [
+        {
+          "node": "ROOF P1 SkinTop",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            -16,
+            86.0172
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.2571,
+            24.3322
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P2 SkinTop",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            30.3125,
+            86.0172
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.2571,
+            24.3322
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P3 SkinTop",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            76.625,
+            86.0172
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.2571,
+            24.3322
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P4 SkinTop",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            122.9375,
+            86.0172
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.2571,
+            24.3322
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P5 SkinTop",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            169.25,
+            86.0172
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.2571,
+            24.3322
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P6 SkinTop",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            215.5625,
+            86.0172
+          ],
+          "sizeIn": [
+            16.4375,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.2571,
+            24.3322
+          ],
+          "match": "different"
+        }
+      ]
+    },
+    {
+      "id": "roof-panel-skin-bottom",
+      "file": "parts/roof-panel-skin-bottom.glb",
+      "sourceNode": "ROOF P1 SkinBottom",
+      "frame": "roof",
+      "lengthAxis": "z",
+      "sizeIn": [
+        46.3125,
+        13.9905,
+        167.5893
+      ],
+      "zRangeIn": [
+        -143.5872,
+        24.0021
+      ],
+      "sourceOffsetIn": [
+        -16,
+        82.0559
+      ],
+      "triangles": 12,
+      "material": "mat_8",
+      "instances": [
+        {
+          "node": "ROOF P1 SkinBottom",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            -16,
+            82.0559
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.5872,
+            24.0021
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P2 SkinBottom",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            30.3125,
+            82.0559
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.5872,
+            24.0021
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P3 SkinBottom",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            76.625,
+            82.0559
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.5872,
+            24.0021
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P4 SkinBottom",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            122.9375,
+            82.0559
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.5872,
+            24.0021
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P5 SkinBottom",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            169.25,
+            82.0559
+          ],
+          "sizeIn": [
+            46.3125,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.5872,
+            24.0021
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF P6 SkinBottom",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            215.5625,
+            82.0559
+          ],
+          "sizeIn": [
+            16.4375,
+            13.9905,
+            167.5893
+          ],
+          "zRangeIn": [
+            -143.5872,
+            24.0021
+          ],
+          "match": "different"
+        }
+      ]
+    },
+    {
+      "id": "roof-seam",
+      "file": "parts/roof-seam.glb",
+      "sourceNode": "ROOF Seam1",
+      "frame": "roof",
+      "lengthAxis": "z",
+      "sizeIn": [
+        0.1,
+        14.63,
+        163.6841
+      ],
+      "zRangeIn": [
+        -140.2654,
+        23.4187
+      ],
+      "sourceOffsetIn": [
+        30.2625,
+        86.1252
+      ],
+      "triangles": 12,
+      "material": "mat_7",
+      "instances": [
+        {
+          "node": "ROOF Seam1",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            30.2625,
+            86.1252
+          ],
+          "sizeIn": [
+            0.1,
+            14.63,
+            163.6841
+          ],
+          "zRangeIn": [
+            -140.2654,
+            23.4187
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF Seam2",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            76.575,
+            86.1252
+          ],
+          "sizeIn": [
+            0.1,
+            14.63,
+            163.6841
+          ],
+          "zRangeIn": [
+            -140.2654,
+            23.4187
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF Seam3",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            122.8875,
+            86.1252
+          ],
+          "sizeIn": [
+            0.1,
+            14.63,
+            163.6841
+          ],
+          "zRangeIn": [
+            -140.2654,
+            23.4187
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF Seam4",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            169.2,
+            86.1252
+          ],
+          "sizeIn": [
+            0.1,
+            14.63,
+            163.6841
+          ],
+          "zRangeIn": [
+            -140.2654,
+            23.4187
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        },
+        {
+          "node": "ROOF Seam5",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            215.5125,
+            86.1252
+          ],
+          "sizeIn": [
+            0.1,
+            14.63,
+            163.6841
+          ],
+          "zRangeIn": [
+            -140.2654,
+            23.4187
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        }
+      ]
+    },
+    {
+      "id": "roof-back-channel",
+      "file": "parts/roof-back-channel.glb",
+      "sourceNode": "ROOF BackChannel",
+      "frame": "roof",
+      "lengthAxis": "x",
+      "sizeIn": [
+        248,
+        4.8191,
+        3.664
+      ],
+      "zRangeIn": [
+        -144.2111,
+        -140.547
+      ],
+      "sourceOffsetIn": [
+        -16,
+        95.7658
+      ],
+      "triangles": 640,
+      "material": "mat_7",
+      "instances": [
+        {
+          "node": "ROOF BackChannel",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            -16,
+            95.7658
+          ],
+          "sizeIn": [
+            248,
+            4.8191,
+            3.664
+          ],
+          "zRangeIn": [
+            -144.2111,
+            -140.547
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        }
+      ]
+    },
+    {
+      "id": "roof-gutter",
+      "file": "parts/roof-gutter.glb",
+      "sourceNode": "ROOF Gutter",
+      "frame": "roof",
+      "lengthAxis": "x",
+      "sizeIn": [
+        248,
+        4.5276,
+        5.0457
+      ],
+      "zRangeIn": [
+        22.7246,
+        27.7703
+      ],
+      "sourceOffsetIn": [
+        -16,
+        81.7235
+      ],
+      "triangles": 1216,
+      "material": "mat_7",
+      "instances": [
+        {
+          "node": "ROOF Gutter",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            -16,
+            81.7235
+          ],
+          "sizeIn": [
+            248,
+            4.5276,
+            5.0457
+          ],
+          "zRangeIn": [
+            22.7246,
+            27.7703
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        }
+      ]
+    },
+    {
+      "id": "roof-fascia-left",
+      "file": "parts/roof-fascia-left.glb",
+      "sourceNode": "ROOF FasciaL",
+      "frame": "roof",
+      "lengthAxis": "z",
+      "sizeIn": [
+        1.115,
+        18.944,
+        171.8519
+      ],
+      "zRangeIn": [
+        -144,
+        27.8519
+      ],
+      "sourceOffsetIn": [
+        -16.2922,
+        81.6547
+      ],
+      "triangles": 1166,
+      "material": "mat_7",
+      "instances": [
+        {
+          "node": "ROOF FasciaL",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            -16.2922,
+            81.6547
+          ],
+          "sizeIn": [
+            1.115,
+            18.944,
+            171.8519
+          ],
+          "zRangeIn": [
+            -144,
+            27.8519
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        }
+      ]
+    },
+    {
+      "id": "roof-fascia-right",
+      "file": "parts/roof-fascia-right.glb",
+      "sourceNode": "ROOF FasciaR",
+      "frame": "roof",
+      "lengthAxis": "z",
+      "sizeIn": [
+        1.115,
+        18.944,
+        171.8519
+      ],
+      "zRangeIn": [
+        -144,
+        27.8519
+      ],
+      "sourceOffsetIn": [
+        231.1773,
+        81.6547
+      ],
+      "triangles": 1166,
+      "material": "mat_7",
+      "instances": [
+        {
+          "node": "ROOF FasciaR",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            231.1773,
+            81.6547
+          ],
+          "sizeIn": [
+            1.115,
+            18.944,
+            171.8519
+          ],
+          "zRangeIn": [
+            -144,
+            27.8519
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        }
+      ]
+    },
+    {
+      "id": "roof-wedge",
+      "file": "parts/roof-wedge.glb",
+      "sourceNode": "ROOF Wedge",
+      "frame": "roof",
+      "lengthAxis": "x",
+      "sizeIn": [
+        216,
+        0.4233,
+        4.4082
+      ],
+      "zRangeIn": [
+        -4.4082,
+        0
+      ],
+      "sourceOffsetIn": [
+        0,
+        84
+      ],
+      "triangles": 12,
+      "material": "mat_10",
+      "instances": [
+        {
+          "node": "ROOF Wedge",
+          "frame": "roof",
+          "sourceOffsetIn": [
+            0,
+            84
+          ],
+          "sizeIn": [
+            216,
+            0.4233,
+            4.4082
+          ],
+          "zRangeIn": [
+            -4.4082,
+            0
+          ],
+          "match": "same",
+          "shapeDistanceIn": 0
+        }
+      ]
+    }
+  ],
+  "unassigned": []
+}

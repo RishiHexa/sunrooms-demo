@@ -1,0 +1,681 @@
+{
+ "front_width": 216.0,
+ "depth": 144.0,
+ "h_low": 84.0,
+ "h_high": 96.0,
+ "overlap": 0.137,
+ "seat": 1.126,
+ "channel_h": 1.6875000000000004,
+ "half_ch": 1.2024999999999952,
+ "leg": 0.062,
+ "off": 1.1404999999999952,
+ "members": [
+  {
+   "wall": "CORNER",
+   "tag": "CP_L",
+   "part": "A26952",
+   "start": [
+    -0.008,
+    0.0605,
+    0.5615
+   ],
+   "end": [
+    -0.008,
+    0.0605,
+    82.3125
+   ],
+   "note": "front-left corner post (ribs -X,-Y)",
+   "vdir": null,
+   "normal": [
+    1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "CORNER",
+   "tag": "CP_R",
+   "part": "A26952",
+   "start": [
+    215.9395,
+    -0.008,
+    0.5615
+   ],
+   "end": [
+    215.9395,
+    -0.008,
+    82.3125
+   ],
+   "note": "front-right corner post (ribs +X,-Y)",
+   "vdir": null,
+   "normal": [
+    0,
+    1,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "LEFT",
+   "tag": "WC",
+   "part": "A62420",
+   "start": [
+    0.0,
+    143.25,
+    0.5615
+   ],
+   "end": [
+    0.0,
+    143.25,
+    94.25
+   ],
+   "note": "wall channel",
+   "vdir": null,
+   "normal": [
+    -1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "LEFT",
+   "tag": "MULL",
+   "part": "A26949",
+   "start": [
+    0.0,
+    69.0,
+    0.5615
+   ],
+   "end": [
+    0.0,
+    69.0,
+    88.0625
+   ],
+   "note": "mullion",
+   "vdir": null,
+   "normal": [
+    -1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "LEFT",
+   "tag": "BC1",
+   "part": "A62421",
+   "start": [
+    0.0,
+    -1.2025,
+    0.8438
+   ],
+   "end": [
+    0.0,
+    69.631,
+    0.8438
+   ],
+   "note": "bottom channel",
+   "vdir": [
+    0,
+    0,
+    1
+   ],
+   "normal": null,
+   "mitre": "FL"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "BC2",
+   "part": "A62421",
+   "start": [
+    0.0,
+    142.625,
+    0.8438
+   ],
+   "end": [
+    0.0,
+    143.875,
+    0.8438
+   ],
+   "note": "bottom channel stub",
+   "vdir": [
+    0,
+    0,
+    1
+   ],
+   "normal": null,
+   "mitre": null
+  },
+  {
+   "wall": "LEFT",
+   "tag": "TC",
+   "part": "A62421",
+   "start": [
+    0.0,
+    144.0,
+    95.1562
+   ],
+   "end": [
+    0.0,
+    -1.2025,
+    83.056
+   ],
+   "note": "top channel (raked)",
+   "vdir": [
+    0,
+    0,
+    -1
+   ],
+   "normal": null,
+   "mitre": "FL"
+  },
+  {
+   "wall": "LEFT",
+   "tag": "HEAD",
+   "part": "A26948",
+   "start": [
+    0.0,
+    142.625,
+    79.5
+   ],
+   "end": [
+    0.0,
+    2.402,
+    79.5
+   ],
+   "note": "head rail",
+   "vdir": null,
+   "normal": [
+    -1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "LEFT",
+   "tag": "S1",
+   "part": "A33863",
+   "start": [
+    0.0,
+    68.369,
+    24.0
+   ],
+   "end": [
+    0.0,
+    2.402,
+    24.0
+   ],
+   "note": "slider bottom sill",
+   "vdir": [
+    0,
+    0,
+    1
+   ],
+   "normal": null,
+   "mitre": null
+  },
+  {
+   "wall": "LEFT",
+   "tag": "S2",
+   "part": "A33861",
+   "start": [
+    0.0,
+    68.369,
+    79.5
+   ],
+   "end": [
+    0.0,
+    2.402,
+    79.5
+   ],
+   "note": "slider top sill",
+   "vdir": [
+    0,
+    0,
+    -1
+   ],
+   "normal": null,
+   "mitre": null
+  },
+  {
+   "wall": "LEFT",
+   "tag": "S3",
+   "part": "A33864",
+   "start": [
+    0.0,
+    2.402,
+    24.0
+   ],
+   "end": [
+    0.0,
+    2.402,
+    79.5
+   ],
+   "note": "slider side track",
+   "vdir": null,
+   "normal": [
+    -1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "LEFT",
+   "tag": "S4",
+   "part": "A45216",
+   "start": [
+    0.0,
+    68.369,
+    24.0
+   ],
+   "end": [
+    0.0,
+    68.369,
+    79.5
+   ],
+   "note": "slider lock track",
+   "vdir": null,
+   "normal": [
+    -1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "WC",
+   "part": "A62420",
+   "start": [
+    216.0,
+    143.25,
+    0.5615
+   ],
+   "end": [
+    216.0,
+    143.25,
+    94.25
+   ],
+   "note": "wall channel",
+   "vdir": null,
+   "normal": [
+    1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "MULL",
+   "part": "A26949",
+   "start": [
+    216.0,
+    69.0,
+    0.5615
+   ],
+   "end": [
+    216.0,
+    69.0,
+    88.0625
+   ],
+   "note": "mullion",
+   "vdir": null,
+   "normal": [
+    1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "BC1",
+   "part": "A62421",
+   "start": [
+    216.0,
+    -1.2025,
+    0.8438
+   ],
+   "end": [
+    216.0,
+    69.631,
+    0.8438
+   ],
+   "note": "bottom channel",
+   "vdir": [
+    0,
+    0,
+    1
+   ],
+   "normal": null,
+   "mitre": "FR"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "BC2",
+   "part": "A62421",
+   "start": [
+    216.0,
+    142.625,
+    0.8438
+   ],
+   "end": [
+    216.0,
+    143.875,
+    0.8438
+   ],
+   "note": "bottom channel stub",
+   "vdir": [
+    0,
+    0,
+    1
+   ],
+   "normal": null,
+   "mitre": null
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "TC",
+   "part": "A62421",
+   "start": [
+    216.0,
+    144.0,
+    95.1562
+   ],
+   "end": [
+    216.0,
+    -1.2025,
+    83.056
+   ],
+   "note": "top channel (raked)",
+   "vdir": [
+    0,
+    0,
+    -1
+   ],
+   "normal": null,
+   "mitre": "FR"
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "HEAD",
+   "part": "A26948",
+   "start": [
+    216.0,
+    142.625,
+    79.5
+   ],
+   "end": [
+    216.0,
+    2.402,
+    79.5
+   ],
+   "note": "head rail",
+   "vdir": null,
+   "normal": [
+    1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "S1",
+   "part": "A33863",
+   "start": [
+    216.0,
+    68.369,
+    24.0
+   ],
+   "end": [
+    216.0,
+    2.402,
+    24.0
+   ],
+   "note": "slider bottom sill",
+   "vdir": [
+    0,
+    0,
+    1
+   ],
+   "normal": null,
+   "mitre": null
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "S2",
+   "part": "A33861",
+   "start": [
+    216.0,
+    68.369,
+    79.5
+   ],
+   "end": [
+    216.0,
+    2.402,
+    79.5
+   ],
+   "note": "slider top sill",
+   "vdir": [
+    0,
+    0,
+    -1
+   ],
+   "normal": null,
+   "mitre": null
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "S3",
+   "part": "A33864",
+   "start": [
+    216.0,
+    2.402,
+    24.0
+   ],
+   "end": [
+    216.0,
+    2.402,
+    79.5
+   ],
+   "note": "slider side track",
+   "vdir": null,
+   "normal": [
+    1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "RIGHT",
+   "tag": "S4",
+   "part": "A45216",
+   "start": [
+    216.0,
+    68.369,
+    24.0
+   ],
+   "end": [
+    216.0,
+    68.369,
+    79.5
+   ],
+   "note": "slider lock track",
+   "vdir": null,
+   "normal": [
+    1,
+    0,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "FRONT",
+   "tag": "BC",
+   "part": "A62421",
+   "start": [
+    -1.2025,
+    0,
+    0.8438
+   ],
+   "end": [
+    217.2025,
+    0,
+    0.8438
+   ],
+   "note": "bottom channel",
+   "vdir": [
+    0,
+    0,
+    1
+   ],
+   "normal": null,
+   "mitre": "FL|FR"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "TC",
+   "part": "A62421",
+   "start": [
+    -1.2025,
+    0,
+    83.1562
+   ],
+   "end": [
+    217.2025,
+    0,
+    83.1562
+   ],
+   "note": "top channel",
+   "vdir": [
+    0,
+    0,
+    -1
+   ],
+   "normal": null,
+   "mitre": "FL|FR"
+  },
+  {
+   "wall": "FRONT",
+   "tag": "MULL1",
+   "part": "A26949",
+   "start": [
+    55.201,
+    0,
+    0.5615
+   ],
+   "end": [
+    55.201,
+    0,
+    82.3125
+   ],
+   "note": "mullion 1",
+   "vdir": null,
+   "normal": [
+    0,
+    -1,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "FRONT",
+   "tag": "MULL2",
+   "part": "A26949",
+   "start": [
+    108.0,
+    0,
+    0.5615
+   ],
+   "end": [
+    108.0,
+    0,
+    82.3125
+   ],
+   "note": "mullion 2",
+   "vdir": null,
+   "normal": [
+    0,
+    -1,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "FRONT",
+   "tag": "MULL3",
+   "part": "A26949",
+   "start": [
+    160.799,
+    0,
+    0.5615
+   ],
+   "end": [
+    160.799,
+    0,
+    82.3125
+   ],
+   "note": "mullion 3",
+   "vdir": null,
+   "normal": [
+    0,
+    -1,
+    0
+   ],
+   "mitre": null
+  },
+  {
+   "wall": "FRONT",
+   "tag": "R_LO",
+   "part": "A26948",
+   "start": [
+    2.402,
+    0,
+    24.0
+   ],
+   "end": [
+    213.598,
+    0,
+    24.0
+   ],
+   "note": "rail below glass",
+   "vdir": [
+    0,
+    0,
+    1
+   ],
+   "normal": null,
+   "mitre": null
+  },
+  {
+   "wall": "FRONT",
+   "tag": "R_HI",
+   "part": "A26948",
+   "start": [
+    2.402,
+    0,
+    79.5
+   ],
+   "end": [
+    213.598,
+    0,
+    79.5
+   ],
+   "note": "rail above glass",
+   "vdir": [
+    0,
+    0,
+    -1
+   ],
+   "normal": null,
+   "mitre": null
+  }
+ ]
+}

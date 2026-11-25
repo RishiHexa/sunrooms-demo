@@ -1,0 +1,50 @@
+import FreeCAD as App
+import Part
+
+# --- 1. User Dimensions (mm) ---
+total_w = 500.0
+total_h = 2000.0
+arch_h = 250.0      
+side_h = total_h - arch_h
+prof_w = 25.0       
+prof_t = 10.0       
+half_w = total_w / 2
+
+# --- 2. Create the Path (The Window Outline) ---
+p1 = App.Vector(-half_w, 0, 0)
+p2 = App.Vector(half_w, 0, 0)
+p3 = App.Vector(half_w, side_h, 0)
+p4 = App.Vector(-half_w, side_h, 0)
+p_mid = App.Vector(0, side_h + arch_h, 0) 
+
+# Create the geometric edges
+e1 = Part.makeLine(p1, p2)
+e2 = Part.makeLine(p2, p3)
+e3 = Part.Arc(p3, p_mid, p4).toShape()
+e4 = Part.makeLine(p4, p1)
+
+# Join them into a single path wire
+path_wire = Part.Wire([e1, e2, e3, e4])
+
+# --- 3. Create the Profile (10x25mm) ---
+# We create a rectangle at the start point (p1)
+# The rectangle is defined by 4 points to ensure it's a closed wire
+rect_pts = [
+    p1,
+    p1 + App.Vector(prof_w, 0, 0),
+    p1 + App.Vector(prof_w, 0, prof_t),
+    p1 + App.Vector(0, 0, prof_t),
+    p1 # Close the loop
+]
+profile_wire = Part.makePolygon(rect_pts)
+
+# --- 4. Generate the Solid Frame ---
+# Syntax: makePipeShell([profiles], makeSolid, isFrenet, transition)
+# Setting the second argument to True generates a solid immediately.
+window_solid = path_wire.makePipeShell([profile_wire], True, False, False)
+
+# --- 5. Add to Document ---
+doc = App.activeDocument() or App.newDocument("RoundTopWindow")
+obj = doc.addObject("Part::Feature", "WindowFrame")
+obj.Shape = window_solid
+doc.recompute()

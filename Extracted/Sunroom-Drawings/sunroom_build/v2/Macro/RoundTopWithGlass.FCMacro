@@ -1,0 +1,45 @@
+import FreeCAD as App
+import Part
+
+# --- 1. Dimensions (mm) ---
+total_w, total_h, arch_h = 700.0, 2000.0, 350.0
+prof_w, prof_t = 10.0, 25.0
+inset_thickness = 25.0  # Thickness of the white solid
+offset_val = -20.0      # -20mm to move "inward"
+half_w, side_h = total_w / 2, total_h - arch_h
+
+# --- 2. Create the Path (Outer Frame Outline) ---
+p1, p2 = App.Vector(-half_w, 0, 0), App.Vector(half_w, 0, 0)
+p3, p4 = App.Vector(half_w, side_h, 0), App.Vector(-half_w, side_h, 0)
+p_mid = App.Vector(0, side_h + arch_h, 0) 
+
+e1, e2, e4 = Part.makeLine(p1, p2), Part.makeLine(p2, p3), Part.makeLine(p4, p1)
+e3 = Part.Arc(p3, p_mid, p4).toShape()
+path_wire = Part.Wire([e1, e2, e3, e4])
+
+# --- 3. Generate the 10x25mm Frame ---
+rect_pts = [p1, p1 + App.Vector(prof_w, 0, 0), p1 + App.Vector(prof_w, 0, prof_t), p1 + App.Vector(0, 0, prof_t), p1]
+profile_wire = Part.makePolygon(rect_pts)
+frame_solid = path_wire.makePipeShell([profile_wire], True, False, False)
+
+# --- 4. Generate the White Offset Solid ---
+# Create an inward offset wire (20mm inside)
+offset_wire = path_wire.makeOffset2D(offset_val, join=0) # join=0 is arc
+# Create a face from the offset wire and extrude it 25mm
+inset_face = Part.Face(offset_wire)
+inset_solid = inset_face.extrude(App.Vector(0, 0, inset_thickness))
+
+# --- 5. Add to Document & Apply Color ---
+doc = App.activeDocument() or App.newDocument("WindowProject")
+
+# Add Frame
+obj_frame = doc.addObject("Part::Feature", "WindowFrame")
+obj_frame.Shape = frame_solid
+
+# Add White Inset
+obj_inset = doc.addObject("Part::Feature", "WhitePanel")
+obj_inset.Shape = inset_solid
+# Set Color to White (RGB: 1.0, 1.0, 1.0)
+obj_inset.ViewObject.ShapeColor = (1.0, 1.0, 1.0)
+
+doc.recompute()

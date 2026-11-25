@@ -1,0 +1,19 @@
+225 SunRoom Assembly
+
+- 225 sunrooms are constructed using the following:
+- Wall channels A62420, vertically against the existing wall, top and bottom channels A62421, horizontally around the perimeter of the sunroom, and corner posts A26952 at each corner.
+- A bottom channel is not required when a door section is specified, so the door can sit at floor level. If a door is adjacent to a wall channel , a stub bottom channel is still used to support the vertical channel
+- Overall sunroom dimensions refer to the outside of these channels.
+-  The attached drawing 225-Assembly.dxf , has a series of cross sections, both vertical and horizontal, showing the profiles required and their orientation.
+- The sunrooms are constructed using vertical channels, on each side which then snap together.
+- They are from left to right always, a female channel A26948 and on the right a male channel A26949. When a male channel snaps onto a female channel the overlap is approximately 0.137 inches.
+- In each section between the female and male vertical profiles, female channel members are used to separate the panels. The panels can be solid, which is a Styrofoam piece between aluminum skin,
+a glass panel, a prefab door or a slider window.
+The solid sections fit inside the female and male profiles, as well as the door sections they do not require any adapters.
+- The glass panels require a glass adaptor A26950 all around the panel.
+- The window section requires the bottom sill A33863, the top sill A33861, the side track A33864 and the locking side track A45216.
+- The window is further made up of 2 sashes with miter corners comprising of 2 pieces per sash horizontally, sash frame A29389,  then the locking pull sash A29389, the 2 CMR pieces, A22445, A22446 , plus another sash frame A45216
+- When a patio door is required, 3 extra 1x1 mitered square tubes are added to the exterior to be used as trim to finish off the patio door frame.
+-On the horizontal cross sections displayed, the outside of the room is to the bottom and on the vertical cross sections the outside is to the right.
+- The top channel on the center flat front wall, is placed from outside to outside of the corner posts with the side wall top channels butting up to the corner posts and the vertical legs will need a miter cuts to accommodate the side wall slope at both ends.
+

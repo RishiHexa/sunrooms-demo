@@ -1,0 +1,2106 @@
+[
+ {
+  "wall": "CORNER",
+  "tag": "CP_L",
+  "part": "A26952",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   -1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   0.0,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "corner post, seated in the channels",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "CORNER",
+  "tag": "CP_R",
+  "part": "A26952",
+  "u": [
+   1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   -1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   216.0,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "corner post, seated in the channels",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P1_F",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   2.275,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "panel 1",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P1_M",
+  "part": "A26949",
+  "u": [
+   0,
+   1,
+   0.0
+  ],
+  "v": [
+   -1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   53.99773,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "panel 1",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P2_F",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   55.14243,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "panel 2",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P2_M",
+  "part": "A26949",
+  "u": [
+   0,
+   1,
+   0.0
+  ],
+  "v": [
+   -1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   106.86515,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "panel 2",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P3_F",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   108.00985,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "panel 3",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P3_M",
+  "part": "A26949",
+  "u": [
+   0,
+   1,
+   0.0
+  ],
+  "v": [
+   -1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   159.73257,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "panel 3",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P4_F",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   160.87727,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "panel 4",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P4_M",
+  "part": "A26949",
+  "u": [
+   0,
+   1,
+   0.0
+  ],
+  "v": [
+   -1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   212.6,
+   0.0,
+   0.5619
+  ],
+  "length": 82.8762,
+  "note": "panel 4",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "P1_F",
+  "part": "A26948",
+  "u": [
+   -1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   -1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   0.0,
+   142.7957,
+   0.5619
+  ],
+  "length": 94.77584,
+  "note": "panel 1",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "P1_M",
+  "part": "A26949",
+  "u": [
+   1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   0.0,
+   72.9707,
+   0.5619
+  ],
+  "length": 88.95709,
+  "note": "panel 1",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "P2_F",
+  "part": "A26948",
+  "u": [
+   -1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   -1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   0.0,
+   71.963,
+   0.5619
+  ],
+  "length": 88.87312,
+  "note": "panel 2",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "P2_M",
+  "part": "A26949",
+  "u": [
+   1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   0.0,
+   2.138,
+   0.5619
+  ],
+  "length": 83.05437,
+  "note": "panel 2",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "P1_F",
+  "part": "A26948",
+  "u": [
+   1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   216.0,
+   2.275,
+   0.5619
+  ],
+  "length": 83.06578,
+  "note": "panel 1",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "P1_M",
+  "part": "A26949",
+  "u": [
+   -1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   -1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   216.0,
+   71.8306,
+   0.5619
+  ],
+  "length": 88.86208,
+  "note": "panel 1",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "P2_F",
+  "part": "A26948",
+  "u": [
+   1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   216.0,
+   72.9753,
+   0.5619
+  ],
+  "length": 88.95748,
+  "note": "panel 2",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "P2_M",
+  "part": "A26949",
+  "u": [
+   -1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   -1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   216.0,
+   142.5309,
+   0.5619
+  ],
+  "length": 94.75378,
+  "note": "panel 2",
+  "anchor": null,
+  "req": null,
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "WC",
+  "part": "A62420",
+  "u": [
+   -1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   -1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   0.0,
+   142.75,
+   0.5619
+  ],
+  "length": 94.8762,
+  "note": "wall channel at house",
+  "anchor": null,
+  "req": [
+   0,
+   -1,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "WC",
+  "part": "A62420",
+  "u": [
+   1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   216.0,
+   142.75,
+   0.5619
+  ],
+  "length": 94.8762,
+  "note": "wall channel at house",
+  "anchor": null,
+  "req": [
+   0,
+   -1,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "BC",
+  "part": "A62421",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "length": 216.0,
+  "note": "front bottom channel",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": "FL|FR"
+ },
+ {
+  "wall": "FRONT",
+  "tag": "TC",
+  "part": "A62421",
+  "u": [
+   0,
+   1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   0.0,
+   0.0,
+   82.3125
+  ],
+  "length": 216.0,
+  "note": "front top channel",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": "FL|FR"
+ },
+ {
+  "wall": "LEFT",
+  "tag": "BC1",
+  "part": "A62421",
+  "u": [
+   -1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "length": 74.2327,
+  "note": "bottom channel, mitred at the corner",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": "FL"
+ },
+ {
+  "wall": "LEFT",
+  "tag": "BC2",
+  "part": "A62421",
+  "u": [
+   -1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   0.0,
+   142.7957,
+   0.0
+  ],
+  "length": 1.2043,
+  "note": "stub bottom channel under the wall channel",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "TC",
+  "part": "A62421",
+  "u": [
+   1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   0.0,
+   0.9965457582448797,
+   0.08304547985373997
+  ],
+  "origin": [
+   0.0,
+   0.0,
+   82.3125
+  ],
+  "length": 144.49913,
+  "note": "side top channel, raked, mitred at the corner",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": "FL"
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "BC1",
+  "part": "A62421",
+  "u": [
+   1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   216.0,
+   0.0,
+   0.0
+  ],
+  "length": 74.1003,
+  "note": "bottom channel, mitred at the corner",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": "FR"
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "BC2",
+  "part": "A62421",
+  "u": [
+   1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   216.0,
+   142.5309,
+   0.0
+  ],
+  "length": 1.4691,
+  "note": "stub bottom channel under the wall channel",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "TC",
+  "part": "A62421",
+  "u": [
+   -1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   0.0,
+   0.9965457582448797,
+   0.08304547985373997
+  ],
+  "origin": [
+   216.0,
+   0.0,
+   82.3125
+  ],
+  "length": 144.49913,
+  "note": "side top channel, raked, mitred at the corner",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": "FR"
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P1_RLO",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   3.4,
+   0.0,
+   22.875
+  ],
+  "length": 50.59773,
+  "note": "rail below glass, panel 1",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P1_RHI",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   3.4,
+   0.0,
+   79.5
+  ],
+  "length": 50.59773,
+  "note": "rail above glass, panel 1",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P2_RLO",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   56.26743,
+   0.0,
+   22.875
+  ],
+  "length": 50.59772,
+  "note": "rail below glass, panel 2",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P2_RHI",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   56.26743,
+   0.0,
+   79.5
+  ],
+  "length": 50.59772,
+  "note": "rail above glass, panel 2",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P3_RLO",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   109.13485,
+   0.0,
+   22.875
+  ],
+  "length": 50.59772,
+  "note": "rail below glass, panel 3",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P3_RHI",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   109.13485,
+   0.0,
+   79.5
+  ],
+  "length": 50.59772,
+  "note": "rail above glass, panel 3",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P4_RLO",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   162.00227,
+   0.0,
+   22.875
+  ],
+  "length": 50.59772,
+  "note": "rail below glass, panel 4",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P4_RHI",
+  "part": "A26948",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   162.00227,
+   0.0,
+   79.5
+  ],
+  "length": 50.59772,
+  "note": "rail above glass, panel 4",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "RHI",
+  "part": "A26948",
+  "u": [
+   -1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   0.0,
+   3.4,
+   79.5
+  ],
+  "length": 139.3957,
+  "note": "head rail, full run",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "RLO",
+  "part": "A26948",
+  "u": [
+   -1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   0.0,
+   3.4,
+   22.875
+  ],
+  "length": 68.563,
+  "note": "sill under the slider panel",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "RHI",
+  "part": "A26948",
+  "u": [
+   1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   216.0,
+   3.4,
+   79.5
+  ],
+  "length": 139.1309,
+  "note": "head rail, full run",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "RLO",
+  "part": "A26948",
+  "u": [
+   1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   216.0,
+   3.4,
+   22.875
+  ],
+  "length": 68.4306,
+  "note": "sill under the slider panel",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P1_ADP_B",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   3.4,
+   0.0,
+   23.7804
+  ],
+  "length": 50.59773,
+  "note": "glass adaptor, bottom",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P1_ADP_T",
+  "part": "A26950",
+  "u": [
+   0,
+   1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   3.4,
+   0.0,
+   78.91641
+  ],
+  "length": 50.59773,
+  "note": "glass adaptor, top",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P1_ADP_L",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   3.1804,
+   0.0,
+   24.58359
+  ],
+  "length": 54.33281,
+  "note": "glass adaptor, side",
+  "anchor": null,
+  "req": [
+   1,
+   0,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P1_ADP_R",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   53.41413,
+   0.0,
+   24.58359
+  ],
+  "length": 54.33281,
+  "note": "glass adaptor, side",
+  "anchor": null,
+  "req": [
+   -1,
+   0,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P2_ADP_B",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   56.26743,
+   0.0,
+   23.7804
+  ],
+  "length": 50.59772,
+  "note": "glass adaptor, bottom",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P2_ADP_T",
+  "part": "A26950",
+  "u": [
+   0,
+   1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   56.26743,
+   0.0,
+   78.91641
+  ],
+  "length": 50.59772,
+  "note": "glass adaptor, top",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P2_ADP_L",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   56.04783,
+   0.0,
+   24.58359
+  ],
+  "length": 54.33281,
+  "note": "glass adaptor, side",
+  "anchor": null,
+  "req": [
+   1,
+   0,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P2_ADP_R",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   106.28156,
+   0.0,
+   24.58359
+  ],
+  "length": 54.33281,
+  "note": "glass adaptor, side",
+  "anchor": null,
+  "req": [
+   -1,
+   0,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P3_ADP_B",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   109.13485,
+   0.0,
+   23.7804
+  ],
+  "length": 50.59772,
+  "note": "glass adaptor, bottom",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P3_ADP_T",
+  "part": "A26950",
+  "u": [
+   0,
+   1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   109.13485,
+   0.0,
+   78.91641
+  ],
+  "length": 50.59772,
+  "note": "glass adaptor, top",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P3_ADP_L",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   108.91525,
+   0.0,
+   24.58359
+  ],
+  "length": 54.33281,
+  "note": "glass adaptor, side",
+  "anchor": null,
+  "req": [
+   1,
+   0,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P3_ADP_R",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   159.14898,
+   0.0,
+   24.58359
+  ],
+  "length": 54.33281,
+  "note": "glass adaptor, side",
+  "anchor": null,
+  "req": [
+   -1,
+   0,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P4_ADP_B",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   162.00227,
+   0.0,
+   23.7804
+  ],
+  "length": 50.59772,
+  "note": "glass adaptor, bottom",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P4_ADP_T",
+  "part": "A26950",
+  "u": [
+   0,
+   1,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   1.0,
+   0.0,
+   0.0
+  ],
+  "origin": [
+   162.00227,
+   0.0,
+   78.91641
+  ],
+  "length": 50.59772,
+  "note": "glass adaptor, top",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P4_ADP_L",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   161.78267,
+   0.0,
+   24.58359
+  ],
+  "length": 54.33281,
+  "note": "glass adaptor, side",
+  "anchor": null,
+  "req": [
+   1,
+   0,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "FRONT",
+  "tag": "P4_ADP_R",
+  "part": "A26950",
+  "u": [
+   0,
+   -1,
+   0.0
+  ],
+  "v": [
+   1,
+   0,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   212.01641,
+   0.0,
+   24.58359
+  ],
+  "length": 54.33281,
+  "note": "glass adaptor, side",
+  "anchor": null,
+  "req": [
+   -1,
+   0,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "SL_BOT",
+  "part": "A33863",
+  "u": [
+   -1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   0.0,
+   4.07809,
+   23.7713
+  ],
+  "length": 67.20681,
+  "note": "slider bottom sill",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "SL_TOP",
+  "part": "A33861",
+  "u": [
+   1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   0.0,
+   4.07809,
+   78.72791
+  ],
+  "length": 67.20681,
+  "note": "slider top sill",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "SL_TRK_A",
+  "part": "A33864",
+  "u": [
+   -1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   -1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   0.0,
+   3.1809,
+   23.7713
+  ],
+  "length": 55.9478,
+  "note": "slider side track (low end)",
+  "anchor": null,
+  "req": [
+   0,
+   1,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "LEFT",
+  "tag": "SL_TRK_B",
+  "part": "A33864",
+  "u": [
+   1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   0.0,
+   71.28491,
+   23.7713
+  ],
+  "length": 55.9478,
+  "note": "slider side track (high end)",
+  "anchor": null,
+  "req": [
+   0,
+   -1,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "SL_BOT",
+  "part": "A33863",
+  "u": [
+   1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   216.0,
+   4.07809,
+   23.7713
+  ],
+  "length": 67.07441,
+  "note": "slider bottom sill",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "SL_TOP",
+  "part": "A33861",
+  "u": [
+   -1,
+   0,
+   0
+  ],
+  "v": [
+   0,
+   0,
+   -1
+  ],
+  "w": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "origin": [
+   216.0,
+   4.07809,
+   78.72791
+  ],
+  "length": 67.07441,
+  "note": "slider top sill",
+  "anchor": null,
+  "req": [
+   0,
+   0,
+   -1
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "SL_TRK_A",
+  "part": "A33864",
+  "u": [
+   1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   216.0,
+   3.1809,
+   23.7713
+  ],
+  "length": 55.9478,
+  "note": "slider side track (low end)",
+  "anchor": null,
+  "req": [
+   0,
+   1,
+   0
+  ],
+  "mitre": null
+ },
+ {
+  "wall": "RIGHT",
+  "tag": "SL_TRK_B",
+  "part": "A33864",
+  "u": [
+   -1,
+   0,
+   0.0
+  ],
+  "v": [
+   0,
+   -1,
+   0.0
+  ],
+  "w": [
+   0.0,
+   0.0,
+   1.0
+  ],
+  "origin": [
+   216.0,
+   71.15251,
+   23.7713
+  ],
+  "length": 55.9478,
+  "note": "slider side track (high end)",
+  "anchor": null,
+  "req": [
+   0,
+   -1,
+   0
+  ],
+  "mitre": null
+ }
+]
