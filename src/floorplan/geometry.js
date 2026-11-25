@@ -8,7 +8,7 @@
  * Plan shape:
  *   {
  *     vertices: [{ x, y }, ...],                 // closed polygon, n >= 3
- *     walls:    [{ orientation, locked, house, panels, windows }, ...],  // wall i goes vertices[i] -> vertices[(i+1) % n]
+ *     walls:    [{ orientation, locked, house, panels, windows, sizes }, ...],  // wall i goes vertices[i] -> vertices[(i+1) % n]
  *   }
  *   orientation: 'h' (kept horizontal) | 'v' (kept vertical) | null (free)
  *   locked:      true = wall length is fixed
@@ -17,6 +17,12 @@
  *   windows:     per-panel options, or null. windows[k] = { type, transom } for panel k (0-based,
  *                left -> right seen from outside), or null = system default type, no transom.
  *                type: 'fixed' | 'slider' | 'casement' | 'solid' | 'door' (see spec panelTypes).
+ *   sizes:       per-panel size overrides, or null. sizes[k] = { width, kneeTop, transomClear } for
+ *                panel k, each a number (inches) or null = the supplier value (layout.js):
+ *                  width        locked opening width; unlocked panels share the rest of the run
+ *                  kneeTop      knee rail top of body above the panel bottom (supplier 25.125")
+ *                  transomClear transom fin-to-fin clearance below the top receiver (supplier 10")
+ *                Missing / null = supplier value, so plans without sizes lay out exactly as before.
  *   heights:     { front, back } room heights in inches, or null = system default (see layout.js).
  *                front = top of top channel on the low (front) wall's exterior line,
  *                back  = the same at the house wall; null = follows the default slope.
@@ -50,6 +56,7 @@ export function clonePlan(plan) {
       house: !!w.house,
       panels: w.panels ?? null,
       windows: w.windows ? w.windows.map((e) => (e ? { type: e.type, transom: !!e.transom } : null)) : null,
+      sizes: w.sizes ? w.sizes.map((e) => (e ? { width: e.width ?? null, kneeTop: e.kneeTop ?? null, transomClear: e.transomClear ?? null } : null)) : null,
     })),
     heights: {
       front: plan.heights?.front ?? null,
@@ -58,7 +65,7 @@ export function clonePlan(plan) {
   }
 }
 
-const freshWall = () => ({ orientation: null, locked: false, house: false, panels: null, windows: null })
+const freshWall = () => ({ orientation: null, locked: false, house: false, panels: null, windows: null, sizes: null })
 
 const mod = (i, n) => ((i % n) + n) % n
 
@@ -515,6 +522,7 @@ export function setHouseWall(plan, i) {
   })
   next.walls[i].panels = null
   next.walls[i].windows = null
+  next.walls[i].sizes = null
   return { ok: true, plan: next }
 }
 
@@ -557,6 +565,46 @@ export function clearPanelOptions(plan, i) {
   if (!plan.walls[i] || plan.walls[i].house) return { ok: false, error: 'The house wall has no panels.' }
   const next = clonePlan(plan)
   next.walls[i].windows = null
+  return { ok: true, plan: next }
+}
+
+/** Fields accepted by setPanelSize (see the plan shape at the top of this file). */
+export const PANEL_SIZE_FIELDS = Object.freeze(['width', 'kneeTop', 'transomClear'])
+
+/**
+ * Set size overrides of panel k on wall i. `patch` = any of { width, kneeTop, transomClear },
+ * each a number (inches) or null = back to the supplier value. Like setPanelOption, an automatic
+ * panel count is pinned to `currentCount` so the overrides stay on the panel they were set for.
+ * Only checks that cannot depend on product data are made here (finite, > 0); whether the sizes
+ * fit (width limits, closing the run, rails fitting) is checked by the layout.
+ */
+export function setPanelSize(plan, i, k, patch, currentCount) {
+  const w = plan.walls[i]
+  if (!w || w.house) return { ok: false, error: 'The house wall has no panels.' }
+  const count = w.panels ?? currentCount
+  if (!(Number.isInteger(count) && count >= 1)) return { ok: false, error: 'This wall has no valid panel layout yet: fix its size or panel count first.' }
+  if (!(Number.isInteger(k) && k >= 0 && k < count)) return { ok: false, error: `Panel ${k + 1} does not exist on this wall.` }
+  for (const [key, v] of Object.entries(patch ?? {})) {
+    if (!PANEL_SIZE_FIELDS.includes(key)) return { ok: false, error: `Unknown panel size field "${key}".` }
+    if (v !== null && !(Number.isFinite(v) && v > 0)) return { ok: false, error: 'Enter a size greater than 0.' }
+  }
+  const next = clonePlan(plan)
+  const nw = next.walls[i]
+  nw.panels = count
+  const list = nw.sizes ? [...nw.sizes] : []
+  while (list.length <= k) list.push(null)
+  const entry = { width: null, kneeTop: null, transomClear: null, ...(list[k] ?? {}), ...patch }
+  list[k] = PANEL_SIZE_FIELDS.every((f) => entry[f] == null) ? null : entry
+  while (list.length && list[list.length - 1] === null) list.pop()
+  nw.sizes = list.length ? list : null
+  return { ok: true, plan: next }
+}
+
+/** Clear every size override of wall i (all panels back to supplier sizes). The count is kept. */
+export function clearPanelSizes(plan, i) {
+  if (!plan.walls[i] || plan.walls[i].house) return { ok: false, error: 'The house wall has no panels.' }
+  const next = clonePlan(plan)
+  next.walls[i].sizes = null
   return { ok: true, plan: next }
 }
 

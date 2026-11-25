@@ -16,7 +16,7 @@
  * "Use N panels" exactly as before.
  */
 import { computeLayout, combinedLimits, panelOption, panelSizeWithDoors, supportsTransom } from './layout.js'
-import { setPanelCount, setPanelOption } from '../floorplan/geometry.js'
+import { setPanelCount, setPanelOption, setPanelSize } from '../floorplan/geometry.js'
 
 const wallOf = (layout, i) => layout.walls.find((w) => w.index === i) ?? null
 const inch = (v) => `${Math.round(v * 1000) / 1000}"`
@@ -94,6 +94,26 @@ function noFitMessage(plan, w, spec) {
   if (narrow != null) parts.push(`${narrow} panel${narrow > 1 ? 's' : ''} = ${inch(size(narrow))} (min ${lim.min}")`)
   const why = parts.length ? `: ${parts.join(', ')}` : ''
   return `${lim.label} doesn't fit the ${name}${why}.`
+}
+
+/**
+ * Change size overrides of panel k (setPanelSize: width lock, knee height, transom clearance)
+ * without leaving the wall broken: if the change gives the wall an error it did not have before
+ * (a locked width outside its limit, the run not closing, a rail that no longer fits), it is
+ * refused with that error and nothing is stored.
+ * @returns {{ ok: true, plan } | { ok: false, error: string }}
+ */
+export function choosePanelSize(plan, i, k, patch, spec) {
+  const lay = computeLayout(plan, spec)
+  const lw = wallOf(lay, i)
+  if (!lw) return { ok: false, error: 'The house wall has no panels.' }
+  const res = setPanelSize(plan, i, k, patch, lw.count)
+  if (!res.ok) return res
+  const mine = (l) => l.errors.filter((e) => e.wall === i).map((e) => e.message)
+  const before = new Set(mine(lay))
+  const added = mine(computeLayout(res.plan, spec)).filter((m) => !before.has(m))
+  if (added.length) return { ok: false, error: added[0] }
+  return { ok: true, plan: res.plan }
 }
 
 /**

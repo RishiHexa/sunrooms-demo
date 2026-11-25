@@ -1,7 +1,8 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { useFloorPlan } from '../floorplan/useFloorPlan.js'
-import { choosePanelOption, typeAvailability } from '../sunroom/panelOptions.js'
+import { choosePanelOption, choosePanelSize, typeAvailability } from '../sunroom/panelOptions.js'
+import LengthField from './LengthField.vue'
 import { formatMm } from '../floorplan/units.js'
 import { panelOption, panelTopAt } from '../sunroom/layout.js'
 import { MAIN_ROLES, ROW_LABELS, mainRoleOf, mergeRows, panelRows, setRowType, splitRow } from '../sunroom/rows.js'
@@ -94,7 +95,7 @@ const panels = computed(() => {
           yt: Math.min(ytL, ytR),
         }
       }),
-      rails: rails.map((r) => ({ name: r.name, y: v.Y(r.z1), h: (r.z1 - r.z0) * v.k })),
+      rails: rails.map((r) => ({ name: r.name, y: v.Y(r.z1), h: (r.z1 - r.z0) * v.k, custom: !!p.rails.find((x) => x.name === r.name)?.custom })),
       bad: p.errors.length > 0,
     }
   })
@@ -159,6 +160,36 @@ const crumbs = computed(() => {
   return out
 })
 
+// ---- panel sizes (width lock, rail heights) ---------------------------------------------------
+// Stored as per-panel overrides (plan.walls[i].sizes) through choosePanelSize, which refuses a
+// change that would break the wall. Not supplier standards: the layout flags every override.
+function setSize(patch) {
+  const out = choosePanelSize(plan.value, props.selection.wall, selPanel.value.k, patch, spec.value)
+  if (!out.ok) {
+    actionError.value = out.error
+    return
+  }
+  actionError.value = ''
+  notice.value = null
+  commit(out.plan)
+}
+const sp = computed(() => selPanel.value?.p ?? null)
+/** Lock at the current width: for an unlocked panel that is the shared size X itself. */
+const lockNow = () => setSize({ width: wall.value.panelSize ?? sp.value.width })
+const railCustom = (name) => !!sp.value?.rails.find((r) => r.name === name)?.custom
+/** Rails editable here: all of the panel's rails at panel level; the ones bounding the row at row level. */
+const editRails = computed(() => {
+  const p = sp.value
+  if (!p) return []
+  const has = { knee: p.kneeTop != null, transom: p.transomClear != null }
+  let names = ['knee', 'transom']
+  if (lvl.value === 'row') {
+    const role = singleRow.value?.role
+    names = role === 'knee' ? ['knee'] : role === 'main' ? ['knee', 'transom'] : role === 'transom' ? ['transom'] : []
+  }
+  return names.filter((n) => has[n])
+})
+
 // slider open / close (visual, animated by the 3D view)
 const slideKey = computed(() => (selPanel.value ? `${props.selection.wall}:${selPanel.value.k}` : ''))
 const isSlider = computed(() => selPanel.value?.p.type === 'slider')
@@ -217,12 +248,14 @@ const collapsed = ref(false)
               />
               <circle v-if="r.role === 'door'" class="handle" :cx="pp.x1 - 4" :cy="r.cy" r="2.2" />
             </template>
-            <rect v-for="rl in pp.rails" :key="rl.name" class="rail" :x="pp.x0" :y="rl.y" :width="pp.x1 - pp.x0" :height="Math.max(rl.h, 1.5)" />
+            <rect v-for="rl in pp.rails" :key="rl.name" class="rail" :class="{ custom: rl.custom }" :x="pp.x0" :y="rl.y" :width="pp.x1 - pp.x0" :height="Math.max(rl.h, 1.5)" />
             <text v-for="r in pp.rows.filter((r) => r.hPx > 13 && pp.x1 - pp.x0 > 34)" :key="'t' + r.role" class="rlabel" :x="r.cx" :y="r.cy + 4">
               {{ r.text }}
             </text>
             <text class="pnum" :x="pp.x0 + 3" :y="view.Y(Math.max(wall.topLeft, wall.topRight)) - 6">P{{ pp.k + 1 }}</text>
-            <text class="pwidth" :x="(pp.x0 + pp.x1) / 2" :y="view.Y(0) + 16">{{ exact(pp.p.width) }}</text>
+            <text class="pwidth" :class="{ locked: pp.p.locked }" :x="(pp.x0 + pp.x1) / 2" :y="view.Y(0) + 16">
+              {{ pp.p.locked ? '🔒 ' : '' }}{{ exact(pp.p.width) }}
+            </text>
           </g>
         </svg>
         <p v-if="wall && !wall.panels.length" class="empty">{{ wall.error || 'This wall has no panel layout yet.' }}</p>
@@ -270,6 +303,47 @@ const collapsed = ref(false)
             <p v-if="mergeCheck && !mergeCheck.ok" class="why">{{ mergeCheck.error }}</p>
           </template>
         </template>
+
+        <!-- sizes of the selected panel / row (per-panel overrides, flagged as non-standard) -->
+        <div v-if="sp && (lvl === 'panel' || singleRow)" class="sizes">
+          <template v-if="lvl === 'panel'">
+            <LengthField
+              label="Width"
+              :value="sp.width"
+              :unit="unit"
+              :disabled="sp.door"
+              :hint="sp.door ? `Door: fixed ${exact(spec.doorWidth)} (supplier)` : sp.locked ? 'Locked · unlocked panels share the rest' : 'Shared equally · type a width to lock it'"
+              @change="(v) => setSize({ width: v })"
+            />
+            <div v-if="!sp.door" class="size-tools">
+              <button v-if="sp.locked" class="mini" @click="setSize({ width: null })">Unlock</button>
+              <button v-else class="mini" @click="lockNow">Lock at this width</button>
+              <span v-if="sp.locked" class="tag">Non-standard</span>
+            </div>
+          </template>
+          <template v-for="name in editRails" :key="name">
+            <LengthField
+              v-if="name === 'knee'"
+              label="Knee rail height"
+              :value="sp.kneeTop"
+              :unit="unit"
+              :hint="`Top of rail above panel bottom · standard ${exact(spec.kneeRailTopAbovePanelBottom)}`"
+              @change="(v) => setSize({ kneeTop: v })"
+            />
+            <LengthField
+              v-else
+              label="Transom below top"
+              :value="sp.transomClear"
+              :unit="unit"
+              :hint="`Fin to fin under the top receiver · standard ${exact(spec.transomClearFin)}`"
+              @change="(v) => setSize({ transomClear: v })"
+            />
+            <div v-if="railCustom(name)" class="size-tools">
+              <button class="mini" @click="setSize(name === 'knee' ? { kneeTop: null } : { transomClear: null })">Reset to standard</button>
+              <span class="tag">Non-standard</span>
+            </div>
+          </template>
+        </div>
 
         <template v-if="isSlider && lvl !== 'wall'">
           <button v-if="canSlide" class="act" :class="{ on: isOpen }" @click="emit('slide', slideKey, !isOpen)">
@@ -502,6 +576,42 @@ const collapsed = ref(false)
 }
 .why {
   color: #9a6700;
+}
+.rail.custom {
+  fill: #d9822b;
+}
+.pwidth.locked {
+  fill: #9a5b13;
+  font-weight: 600;
+}
+.sizes {
+  margin: 8px 0 4px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
+}
+.size-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: -2px 0 6px;
+}
+.mini {
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid #c8cdd4;
+  border-radius: 4px;
+  background: #fff;
+  font: inherit;
+  font-size: 11px;
+  color: var(--brand);
+  cursor: pointer;
+}
+.tag {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  background: #fbe7d3;
+  color: #9a5b13;
 }
 .notice {
   margin: 4px 0;

@@ -24,6 +24,7 @@ function room(w, d, opts = {}) {
       house: i === 0,
       panels: opts.panels?.[i] ?? null,
       windows: opts.windows?.[i] ?? null,
+      sizes: opts.sizes?.[i] ?? null,
     })),
     heights: opts.heights ?? { front: null, back: null },
   }

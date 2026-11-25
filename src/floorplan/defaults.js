@@ -19,10 +19,10 @@ export function createDefaultPlan() {
     ],
     // Back wall (top of the 2D view) is the house wall by default.
     walls: [
-      { orientation: 'h', locked: false, house: true, panels: null, windows: null }, // back (house)
-      { orientation: 'v', locked: false, house: false, panels: null, windows: null }, // right
-      { orientation: 'h', locked: false, house: false, panels: null, windows: null }, // front
-      { orientation: 'v', locked: false, house: false, panels: null, windows: null }, // left
+      { orientation: 'h', locked: false, house: true, panels: null, windows: null, sizes: null }, // back (house)
+      { orientation: 'v', locked: false, house: false, panels: null, windows: null, sizes: null }, // right
+      { orientation: 'h', locked: false, house: false, panels: null, windows: null, sizes: null }, // front
+      { orientation: 'v', locked: false, house: false, panels: null, windows: null, sizes: null }, // left
     ],
     // null = system default heights (SPEC lowWallHeight / roofSlope)
     heights: { front: null, back: null },

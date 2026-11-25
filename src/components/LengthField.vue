@@ -23,8 +23,12 @@ const text = ref('')
 const parseError = ref('')
 const focused = ref(false)
 
+// The text shown for the stored value. It is rounded for display (1/16" / 0.1 mm), so committing
+// it unchanged would replace an exact stored value with the rounded one: only edited text commits.
+let shown = ''
 const sync = () => {
   text.value = props.value == null ? '' : editValue(props.value, props.unit)
+  shown = text.value
   parseError.value = ''
 }
 watch(() => [props.value, props.unit], () => {
@@ -36,6 +40,7 @@ const step = () => (props.unit === 'mm' ? mmToInches(10) : 1)
 const fmt = (v) => (props.unit === 'mm' ? formatMm(v) : formatInches(v))
 
 function commitText() {
+  if (text.value === shown) return sync() // not edited: keep the exact stored value
   const inches = parseLength(text.value, props.unit)
   if (!Number.isFinite(inches)) {
     parseError.value = props.unit === 'mm' ? 'Enter a number in mm.' : 'Enter inches, e.g. 84 or 84 1/2.'

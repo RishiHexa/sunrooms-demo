@@ -118,8 +118,8 @@ describe('splitWall', () => {
     expect(q.vertices.length).toBe(5)
     expect(q.vertices[1]).toEqual({ x: 40.5, y: 0 })
     close(interiorAngle(q, 1), 180)
-    expect(q.walls[0]).toEqual({ orientation: null, locked: false, house: false, panels: null, windows: null })
-    expect(q.walls[1]).toEqual({ orientation: null, locked: false, house: false, panels: null, windows: null })
+    expect(q.walls[0]).toEqual({ orientation: null, locked: false, house: false, panels: null, windows: null, sizes: null })
+    expect(q.walls[1]).toEqual({ orientation: null, locked: false, house: false, panels: null, windows: null, sizes: null })
     close(wallLength(q, 0), 40.5)
   })
 

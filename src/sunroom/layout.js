@@ -80,22 +80,69 @@ export function combinedLimits(types, spec) {
   }
 }
 
+/** Stored size overrides of panel k (plan.walls[i].sizes[k]); null fields = supplier value. */
+export function panelSizeOverride(planWall, k) {
+  const e = planWall?.sizes?.[k]
+  return { width: e?.width ?? null, kneeTop: e?.kneeTop ?? null, transomClear: e?.transomClear ?? null }
+}
+
 /**
  * Size a wall run for `total` panels with the given per-panel options.
- * @returns {{ ok: boolean, error?: string, X?: number, limits?: object, doors?: number }}
+ * `locks[k]` = locked opening width of panel k or null (doors are never locked: fixed size).
+ * Without locks this is exactly the supplier formula (panelSizeWithDoors). With locks, the
+ * unlocked panels share what the doors and locked panels leave:
+ *   X = (run - D*doors - sum(locked) - (N-1)*P) / (N - doors - locked)
+ * EXTENSION (user-requested, not in PanelCalcs, flagged on the wall): unequal panel widths.
+ * @returns {{ ok: boolean, error?: string, X?: number|null, limits?: object, doors?: number }}
  */
-function sizeRun(run, total, options, spec) {
+function sizeRun(run, total, options, spec, locks = []) {
   const doors = options.filter((o) => o.type === 'door').length
   if (doors > 1) return { ok: false, doors, error: 'Only one door per wall: the supplier panel formula (PanelCalcs "WITH DOOR") has a single fixed door size.' }
   if (total - doors < 1) {
     return { ok: false, doors, error: `A door wall needs at least one other panel: the supplier formula sizes the other panels around the fixed ${spec.doorWidth}" door.` }
   }
-  const limits = combinedLimits(options.filter((o) => o.type !== 'door').map((o) => o.type), spec)
+  const lockedIdx = options.map((o, k) => (o.type !== 'door' && locks[k] != null ? k : -1)).filter((k) => k >= 0)
+  if (!lockedIdx.length) {
+    const limits = combinedLimits(options.filter((o) => o.type !== 'door').map((o) => o.type), spec)
+    if (!limits) return { ok: false, doors, error: 'Unknown panel type.' }
+    if (limits.min > limits.max + EPS) return { ok: false, doors, limits, error: `${limits.label}: the chosen panel types have no common width.` }
+    const X = panelSizeWithDoors(run, total, doors, spec.doorWidth, spec.panelJoint)
+    const fits = X >= limits.min - EPS && X <= limits.max + EPS
+    return { ok: fits, doors, limits, X }
+  }
+
+  // locked panels: each within its own type's limits
+  for (const k of lockedIdx) {
+    const lim = spec.panelLimits[options[k].type]
+    if (!lim) return { ok: false, doors, error: 'Unknown panel type.' }
+    const v = locks[k]
+    if (v < lim.min - EPS || v > lim.max + EPS) {
+      return { ok: false, doors, error: `Panel ${k + 1} is locked at ${fmt(v)}; a ${lim.label.toLowerCase()} must be ${lim.min}"–${lim.max}".` }
+    }
+  }
+  const free = options.filter((o, k) => o.type !== 'door' && !lockedIdx.includes(k))
+  const left = run - doors * spec.doorWidth - lockedIdx.reduce((s, k) => s + locks[k], 0) - (total - 1) * spec.panelJoint
+  if (!free.length) {
+    if (Math.abs(left) > 1e-6) {
+      return {
+        ok: false, doors, X: null, limits: null,
+        error: `Every panel is locked and the widths ${left > 0 ? `leave ${fmt(left)} unfilled` : `are ${fmt(-left)} too wide`}: unlock a panel or change a width so the wall closes.`,
+      }
+    }
+    return { ok: true, doors, X: null, limits: null }
+  }
+  const limits = combinedLimits(free.map((o) => o.type), spec)
   if (!limits) return { ok: false, doors, error: 'Unknown panel type.' }
-  if (limits.min > limits.max + EPS) return { ok: false, doors, limits, error: `${limits.label}: the chosen panel types have no common width.` }
-  const X = panelSizeWithDoors(run, total, doors, spec.doorWidth, spec.panelJoint)
+  if (limits.min > limits.max + EPS) return { ok: false, doors, limits, error: `${limits.label}: the unlocked panel types have no common width.` }
+  const X = left / free.length
   const fits = X >= limits.min - EPS && X <= limits.max + EPS
-  return { ok: fits, doors, limits, X }
+  if (!fits) {
+    return {
+      ok: false, doors, limits, X,
+      error: `With the locked widths, the ${free.length} unlocked panel${free.length > 1 ? 's get' : ' gets'} ${fmt(X)}; ${limits.label.toLowerCase()} must be ${limits.min}"–${limits.max}". Change a locked width or unlock a panel.`,
+    }
+  }
+  return { ok: true, doors, limits, X }
 }
 
 /**
@@ -223,12 +270,15 @@ export function computeLayout(plan, spec) {
 
     // Per-panel options (plan.walls[i].windows[k]); panels with nothing stored use the default type.
     const optsFor = (N) => Array.from({ length: N }, (_, k) => panelOption(plan.walls[i], k, spec))
+    // Per-panel size overrides (plan.walls[i].sizes); locked widths take part in sizing.
+    const sizesFor = (N) => Array.from({ length: N }, (_, k) => panelSizeOverride(plan.walls[i], k))
+    const locksFor = (N) => sizesFor(N).map((z) => z.width)
     // Valid panel counts. With per-panel types and a fixed door the valid set depends on N, so
     // scan every count that could fit the smallest documented panel minimum.
     const minAll = Math.min(...Object.values(spec.panelLimits).map((l) => l.min))
     const nScanMax = run > 0 ? Math.floor((run + spec.panelJoint) / (minAll + spec.panelJoint) + EPS) + 1 : 0
     const valid = []
-    for (let N = 1; N <= nScanMax; N++) if (sizeRun(run, N, optsFor(N), spec).ok) valid.push(N)
+    for (let N = 1; N <= nScanMax; N++) if (sizeRun(run, N, optsFor(N), spec, locksFor(N)).ok) valid.push(N)
     wall.countRange = valid.length ? { nMin: valid[0], nMax: valid[valid.length - 1], counts: valid } : null
     const countsText = () =>
       !valid.length ? 'No panel count fits' : `Use ${valid.length === 1 ? valid[0] : valid.length === valid[valid.length - 1] - valid[0] + 1 ? `${valid[0]}–${valid[valid.length - 1]}` : valid.join(', ')} panels`
@@ -241,7 +291,8 @@ export function computeLayout(plan, spec) {
       wall.error = `Wall is ${fmt(L)}: no panel count gives a ${lim.label.toLowerCase()} between ${lim.min}" and ${lim.max}".`
     } else {
       const opts = optsFor(N)
-      const r = sizeRun(run, N, opts, spec)
+      const sizes = sizesFor(N)
+      const r = sizeRun(run, N, opts, spec, sizes.map((z) => z.width))
       wall.count = N
       wall.doors = r.doors
       wall.limits = r.limits ?? combinedLimits([spec.defaultPanelType], spec)
@@ -254,11 +305,20 @@ export function computeLayout(plan, spec) {
         } else {
           let s = allowance(leftEnd)
           for (let k = 0; k < N; k++) {
-            const w = opts[k].type === 'door' ? spec.doorWidth : r.X
+            const w = opts[k].type === 'door' ? spec.doorWidth : sizes[k].width ?? r.X
             wall.openings.push([s, s + w])
             s += w + spec.panelJoint
           }
-          wall.panels = wall.openings.map(([o0, o1], k) => panelMembers(wall, o0, o1, k, opts[k], N, spec, errors))
+          wall.panels = wall.openings.map(([o0, o1], k) => panelMembers(wall, o0, o1, k, opts[k], N, spec, errors, sizes[k]))
+          // unequal widths are a user extension of the supplier formula: flag them
+          const lockedK = sizes.map((z, k) => (z.width != null && opts[k].type !== 'door' ? k + 1 : null)).filter((k) => k != null)
+          if (lockedK.length) {
+            wall.notes.push(
+              `panel${lockedK.length > 1 ? 's' : ''} ${lockedK.join(', ')} ${lockedK.length > 1 ? 'have' : 'has'} a locked width; the supplier panel formula (PanelCalcs) gives equal panels. Unequal panel widths are not a supplier standard; confirm with the supplier.`,
+            )
+          }
+          const doorLocked = sizes.map((z, k) => (z.width != null && opts[k].type === 'door' ? k + 1 : null)).filter((k) => k != null)
+          if (doorLocked.length) wall.notes.push(`panel ${doorLocked.join(', ')}: the stored width is not used; a door is the fixed ${spec.doorWidth}" size.`)
           wall.bottomChannelGaps = wall.panels.filter((p) => p.door).map((p) => [p.s0, p.s1])
         }
       }
@@ -266,6 +326,8 @@ export function computeLayout(plan, spec) {
     // stored options that the current count does not reach are kept but reported
     const unused = (plan.walls[i].windows ?? []).map((e, k) => (e && k >= (wall.count ?? 0) ? k + 1 : null)).filter((k) => k != null)
     if (unused.length) wall.notes.push(`options stored for panel ${unused.join(', ')} are not used (the wall has ${wall.count ?? 0} panels).`)
+    const unusedSizes = (plan.walls[i].sizes ?? []).map((e, k) => (e && k >= (wall.count ?? 0) ? k + 1 : null)).filter((k) => k != null)
+    if (unusedSizes.length) wall.notes.push(`sizes stored for panel ${unusedSizes.join(', ')} are not used (the wall has ${wall.count ?? 0} panels).`)
     if (wall.error) errors.push({ wall: i, message: wall.error })
     walls.push(wall)
   }
@@ -345,7 +407,7 @@ function fmtAngle(deg) {
  * Sources: panel_builder.py + build_mf*.py (2V knee rail, 3V transom, door / raked door header).
  *   rails[].bodyTop  top of the T04 body (rails are level), fits = false when it collides.
  */
-function panelMembers(wall, o0, o1, k, opt, N, spec, errors) {
+function panelMembers(wall, o0, o1, k, opt, N, spec, errors, size = { width: null, kneeTop: null, transomClear: null }) {
   const fin = spec.finHeight
   const Z0 = spec.seatBottom
   const door = opt.type === 'door'
@@ -358,9 +420,15 @@ function panelMembers(wall, o0, o1, k, opt, N, spec, errors) {
   const sRef = fallsRight ? o1 - fin : o0 + fin
   const refTopFin = topFinAt(sRef)
 
+  // Rail heights: supplier values unless the panel stores an override (plan.walls[i].sizes[k]).
+  // EXTENSION (user-requested): overrides are not supplier standard heights and are flagged below;
+  // only the fit check further down limits them (no supplier min/max exists yet).
+  const kneeTop = size.kneeTop ?? spec.kneeRailTopAbovePanelBottom
+  const transomClear = size.transomClear ?? spec.transomClearFin
+  const hasKnee = !door && opt.type !== 'solid'
   const rails = []
-  if (!door && opt.type !== 'solid') rails.push({ name: 'knee', bodyTop: Z0 + spec.kneeRailTopAbovePanelBottom })
-  if (opt.transom) rails.push({ name: 'transom', bodyTop: refTopFin - spec.transomClearFin - fin })
+  if (hasKnee) rails.push({ name: 'knee', bodyTop: Z0 + kneeTop, custom: size.kneeTop != null })
+  if (opt.transom) rails.push({ name: 'transom', bodyTop: refTopFin - transomClear - fin, custom: size.transomClear != null })
   if (door && raked) rails.push({ name: 'door-header', bodyTop: refTopFin - spec.doorHeaderClearFin - fin })
 
   const panel = {
@@ -376,7 +444,24 @@ function panelMembers(wall, o0, o1, k, opt, N, spec, errors) {
     right: k === N - 1 ? 'T02' : 'T03', // last panel of a run is M-M
     bottomReceiver: !door, // M-F-1Door / M-F-2DoorTrap: include_bottom=False
     rails,
+    locked: size.width != null && !door,
+    kneeTop: hasKnee ? kneeTop : null, // top of knee rail body above the panel bottom
+    transomClear: opt.transom ? transomClear : null, // transom fin-to-fin clearance below the top
     errors: [],
+  }
+  if (size.kneeTop != null) {
+    wall.notes.push(
+      hasKnee
+        ? `panel ${k + 1}: knee rail at ${fmt(kneeTop)} above the panel bottom (supplier standard ${fmt(spec.kneeRailTopAbovePanelBottom)}); not a supplier standard height, confirm with the supplier.`
+        : `panel ${k + 1}: the stored knee rail height is not used (a ${door ? 'door' : 'solid panel'} has no knee rail).`,
+    )
+  }
+  if (size.transomClear != null) {
+    wall.notes.push(
+      opt.transom
+        ? `panel ${k + 1}: transom ${fmt(transomClear)} below the top (supplier standard ${fmt(spec.transomClearFin)} fin to fin); not a supplier standard height, confirm with the supplier.`
+        : `panel ${k + 1}: the stored transom clearance is not used (the panel has no transom).`,
+    )
   }
 
   // Fit check bottom -> top: each rail's bottom fin must clear what is below it, and the last
