@@ -1,7 +1,7 @@
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { useFloorPlan } from '../floorplan/useFloorPlan.js'
-import { setPanelOption } from '../floorplan/geometry.js'
+import { choosePanelOption, typeAvailability } from '../sunroom/panelOptions.js'
 import { formatMm } from '../floorplan/units.js'
 import { panelOption, panelTopAt } from '../sunroom/layout.js'
 import { MAIN_ROLES, ROW_LABELS, mainRoleOf, mergeRows, panelRows, setRowType, splitRow } from '../sunroom/rows.js'
@@ -13,7 +13,8 @@ import { click, doubleClick, level, up } from '../sunroom/drill.js'
  * rows of the selected panel for merging.
  *
  * Drawing only consumes layout values (openings, rails, heights); nothing is measured from the
- * drawing. Edits go through setPanelOption, the same stored option the Dimensions panel edits.
+ * drawing. Edits go through choosePanelOption (sunroom/panelOptions.js), the same path and stored
+ * option the Dimensions panel uses.
  */
 const props = defineProps({
   layout: { type: Object, required: true },
@@ -115,23 +116,34 @@ const selRows = computed(() => (selPanel.value ? selPanel.value.rows.filter((r) 
 const singleRow = computed(() => (selRows.value.length === 1 ? selRows.value[0] : null))
 const mergeCheck = computed(() => (selRows.value.length >= 2 ? mergeRows(option.value, selPanel.value.rows, props.selection.rows) : null))
 const splitCheck = computed(() => (singleRow.value ? splitRow(option.value, singleRow.value.role) : null))
-const doorElsewhere = computed(() => (wall.value?.panels ?? []).findIndex((p, j) => p.door && j !== props.selection.panel))
 
 const actionError = ref('')
 watch(() => [props.selection, plan.value], () => (actionError.value = ''))
+// notice from the last edit (e.g. panel count changed); shown only while that plan is current
+const notice = shallowRef(null) // { text, plan } — shallow, so .plan stays the raw plan object for the identity check
+const noticeText = computed(() =>
+  notice.value && notice.value.plan === plan.value && notice.value.wall === props.selection.wall ? notice.value.text : '',
+)
+// types that cannot be chosen for the selected panel (no buildable count, second door)
+const availability = computed(() =>
+  selPanel.value && singleRow.value && MAIN_ROLES.includes(singleRow.value.role)
+    ? typeAvailability(plan.value, props.selection.wall, selPanel.value.k, spec.value)
+    : {},
+)
 
 function apply(res, nextRows) {
   if (!res.ok) {
     actionError.value = res.error
     return
   }
-  const out = setPanelOption(plan.value, props.selection.wall, selPanel.value.k, res.option, wall.value.count)
+  const out = choosePanelOption(plan.value, props.selection.wall, selPanel.value.k, res.option, spec.value)
   if (!out.ok) {
     actionError.value = out.error
     return
   }
   actionError.value = ''
   commit(out.plan)
+  notice.value = out.notice ? { text: out.notice, plan: out.plan, wall: props.selection.wall } : null
   emit('select', { wall: props.selection.wall, panel: props.selection.panel, rows: nextRows })
 }
 const doMerge = () => apply(mergeCheck.value, ['main'])
@@ -239,8 +251,8 @@ const collapsed = ref(false)
                   v-for="t in spec.panelTypes"
                   :key="t.id"
                   :class="{ on: option.type === t.id }"
-                  :disabled="t.id === 'door' && doorElsewhere >= 0"
-                  :title="t.id === 'door' && doorElsewhere >= 0 ? `Panel ${doorElsewhere + 1} is already the door (one per wall)` : ''"
+                  :disabled="availability[t.id] && !availability[t.id].ok"
+                  :title="availability[t.id]?.reason ?? ''"
                   @click="doType(t.id)"
                 >
                   {{ t.label }}
@@ -268,6 +280,7 @@ const collapsed = ref(false)
         </template>
         <p v-for="(e, i) in selPanel?.p.errors ?? []" :key="'e' + i" class="error">{{ e }}</p>
         <p v-if="actionError" class="error">{{ actionError }}</p>
+        <p v-if="noticeText" class="notice">{{ noticeText }}</p>
         <p class="foot">Esc goes up a level. Glass, sashes and door leaf are visual only.</p>
       </aside>
     </div>
@@ -489,6 +502,11 @@ const collapsed = ref(false)
 }
 .why {
   color: #9a6700;
+}
+.notice {
+  margin: 4px 0;
+  font-size: 11px;
+  color: #1a6b3c;
 }
 .error {
   color: #b42318;

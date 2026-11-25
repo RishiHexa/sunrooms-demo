@@ -1,9 +1,10 @@
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, shallowRef, watch } from 'vue'
 import LengthField from './LengthField.vue'
 import ConstraintToggles from './ConstraintToggles.vue'
 import { useFloorPlan } from '../floorplan/useFloorPlan.js'
-import { MIN_WALL_LENGTH_IN, clearPanelOptions, resetRoomHeights, setPanelOption, setRoomHeights, wallLength } from '../floorplan/geometry.js'
+import { MIN_WALL_LENGTH_IN, clearPanelOptions, resetRoomHeights, setRoomHeights, wallLength } from '../floorplan/geometry.js'
+import { choosePanelOption, typeAvailability } from '../sunroom/panelOptions.js'
 import { formatInches, formatMm } from '../floorplan/units.js'
 import { panelOption, supportsTransom } from '../sunroom/layout.js'
 
@@ -78,7 +79,7 @@ const widthHint = computed(() => {
 const widthError = computed(() => props.wallError || layoutWall.value?.error || '')
 
 // ---- windows & doors (per-panel options) ------------------------------------------------------
-// Stored on the plan (walls[i].windows) through setPanelOption; the layout applies the sizes and
+// Stored on the plan (walls[i].windows) through choosePanelOption -> setPanelOption; the layout applies the sizes and
 // frame members. Choosing an option pins an automatic panel count so options stay on their panel.
 const spec = computed(() => props.layout.spec)
 const optionError = ref('')
@@ -92,20 +93,29 @@ const panelRows = computed(() => {
     return { k, type: o.type, transom: o.transom, width: p ? p.width : null, errors: p?.errors ?? [] }
   })
 })
-const doorAt = computed(() => panelRows.value.findIndex((r) => r.type === 'door'))
 const wallWarnings = computed(() => props.layout.warnings.filter((x) => x.wall === props.wall).map((x) => x.message))
+// notice from the last option change (e.g. panel count changed); shown while that plan is current
+const optionNotice = shallowRef(null) // { text, plan } — shallow, so .plan stays the raw plan object for the identity check
+const optionNoticeText = computed(() =>
+  optionNotice.value && optionNotice.value.plan === plan.value && optionNotice.value.wall === props.wall ? optionNotice.value.text : '',
+)
+// types that cannot be chosen per panel (no buildable count on this wall, second door)
+const availability = computed(() => panelRows.value.map((r) => typeAvailability(plan.value, props.wall, r.k, spec.value)))
 function setOption(k, patch) {
   const cur = panelRows.value[k]
   if (!cur) return
   const next = { type: cur.type, transom: cur.transom, ...patch }
   if (!supportsTransom(next.type)) next.transom = false
-  const res = setPanelOption(plan.value, props.wall, k, next, layoutWall.value.count)
+  // choosePanelOption: an automatic count moves to the nearest buildable count; a type with no
+  // buildable count on this wall is refused (sunroom/panelOptions.js)
+  const res = choosePanelOption(plan.value, props.wall, k, next, spec.value)
   if (!res.ok) {
     optionError.value = res.error
     return
   }
   optionError.value = ''
   commit(res.plan)
+  optionNotice.value = res.notice ? { text: res.notice, plan: res.plan, wall: props.wall } : null
 }
 function resetOptions() {
   const res = clearPanelOptions(plan.value, props.wall)
@@ -200,7 +210,8 @@ function resetOptions() {
               v-for="t in spec.panelTypes"
               :key="t.id"
               :value="t.id"
-              :disabled="t.id === 'door' && doorAt >= 0 && doorAt !== r.k"
+              :disabled="availability[r.k]?.[t.id] && !availability[r.k][t.id].ok"
+              :title="availability[r.k]?.[t.id]?.reason ?? ''"
             >
               {{ t.label }}
             </option>
@@ -217,6 +228,7 @@ function resetOptions() {
           <p v-for="(e, i) in r.errors" :key="i" class="error full">{{ e }}</p>
         </div>
         <p v-if="optionError" class="error">{{ optionError }}</p>
+        <p v-if="optionNoticeText" class="notice">{{ optionNoticeText }}</p>
         <p v-for="(m, i) in wallWarnings" :key="'w' + i" class="warn">{{ m }}</p>
         <p class="note">
           Panels numbered left → right, seen from outside. Width limits:
@@ -321,6 +333,12 @@ section:first-of-type {
 }
 .error {
   color: #b42318;
+}
+.notice {
+  font-size: 11px;
+  line-height: 1.4;
+  margin: 6px 0 4px;
+  color: #1a6b3c;
 }
 .warn {
   font-size: 11px;
