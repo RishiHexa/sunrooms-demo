@@ -6,6 +6,7 @@
  */
 import * as THREE from 'three'
 import { panelTopAt, wallPoint, wallTopAt } from './layout.js'
+import { SLIDER_MOTION, sliderTravel } from './slider.js'
 
 // VISUAL ONLY — infill placeholders. No GF50 glass stop, sash, slider, casement or door-leaf
 // profiles are in the supplier files, so these sizes are display choices, not product data.
@@ -458,12 +459,24 @@ function addInfill(wg, wall, p, ctx) {
     } else if (isMain && p.type === 'slider') {
       const mid = (a + b) / 2
       const ov = VIS.sliderOverlap / 2
-      const d1 = gd - 0.6
-      const d2 = gd + 0.6
-      ring(a, mid + ov, L.z0, L.top, VIS.sashWidth, d1, VIS.sashDepth, mats.sash, `p${n}-sash-left`, { part: 'sash' })
-      ring(mid - ov, b, L.z0, L.top, VIS.sashWidth, d2, VIS.sashDepth, mats.sash, `p${n}-sash-right`, { part: 'sash' })
-      face(a, mid + ov, L.z0, L.top, d1, thin, mats.glass, `p${n}-glass-${j + 1}a`, { part: 'glass' })
-      face(mid - ov, b, L.z0, L.top, d2, thin, mats.glass, `p${n}-glass-${j + 1}b`, { part: 'glass' })
+      const dExt = gd - 0.6 // exterior sash plane (depth runs inward from the exterior)
+      const dInt = gd + 0.6 // interior sash plane
+      // Arrangement and motion follow the 225 slider macros (sunroom/slider.js): seen from outside
+      // the interior sash is on the left and slides right. Its meshes go in their own group so the
+      // exploded view (which positions the group) and the slide (which positions the meshes) don't
+      // overwrite each other. Only a level-topped lite can slide; a raked one is not animated.
+      const slideG = new THREE.Group()
+      slideG.name = `p${n}-slider-sash`
+      const level = Math.abs(L.top(a) - L.top(b)) < 1e-6
+      const travel = level ? sliderTravel(b - a, VIS.sliderOverlap) : 0
+      slideG.userData = ud('sash', { visual: true, slide: travel > 0 ? { dir: r3.clone().multiplyScalar(SLIDER_MOTION.direction), travel } : null })
+      const before = wg.children.length
+      ring(a, mid + ov, L.z0, L.top, VIS.sashWidth, dInt, VIS.sashDepth, mats.sash, `p${n}-sash-interior`, { part: 'sash' })
+      face(a, mid + ov, L.z0, L.top, dInt, thin, mats.glass, `p${n}-glass-${j + 1}a`, { part: 'glass' })
+      for (const m of wg.children.slice(before)) slideG.add(m)
+      wg.add(slideG)
+      ring(mid - ov, b, L.z0, L.top, VIS.sashWidth, dExt, VIS.sashDepth, mats.sash, `p${n}-sash-exterior`, { part: 'sash' })
+      face(mid - ov, b, L.z0, L.top, dExt, thin, mats.glass, `p${n}-glass-${j + 1}b`, { part: 'glass' })
     } else if (isMain && p.type === 'casement') {
       ring(a, b, L.z0, L.top, VIS.sashWidth, gd, VIS.sashDepth, mats.sash, `p${n}-sash`, { part: 'sash' })
       face(a, b, L.z0, L.top, gd, thin, mats.glass, `p${n}-glass-${j + 1}`, { part: 'glass' })

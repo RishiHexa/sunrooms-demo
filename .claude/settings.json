@@ -7,7 +7,9 @@
       "ClaudeInChromeDomain(localhost:5180)",
       "ClaudeInChromeDomain(localhost:5199)",
       "ClaudeInChromeDomain(localhost:5191)",
-      "ClaudeInChromeDomain(localhost:5179)"
+      "ClaudeInChromeDomain(localhost:5179)",
+      "ClaudeInChromeDomain(aistudio.google.com)",
+      "mcp__claude-in-chrome__tabs_create_mcp"
     ]
   }
 }

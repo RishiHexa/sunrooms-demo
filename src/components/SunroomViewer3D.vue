@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { CSS2DObject, CSS2DRenderer } from 'three/examples/jsm/renderers/CSS2DRenderer.js'
@@ -11,6 +11,10 @@ import { formatInches, formatMm } from '../floorplan/units.js'
 import { useFloorPlan } from '../floorplan/useFloorPlan.js'
 import { useWallEditor } from '../floorplan/useWallEditor.js'
 import DimensionsPanel from './DimensionsPanel.vue'
+import WallElevation from './WallElevation.vue'
+import { panelAt, panelRows, rowAt, MAIN_ROLES } from '../sunroom/rows.js'
+import { SLIDER_MOTION, easeSlide } from '../sunroom/slider.js'
+import { click as drillClick, doubleClick as drillDoubleClick, level as drillLevel, reconcile, up as drillUp } from '../sunroom/drill.js'
 
 const props = defineProps({
   layout: { type: Object, required: true },
@@ -21,6 +25,24 @@ const emit = defineEmits(['notes'])
 const { plan, unit } = useFloorPlan()
 // The wall editor's open wall is the 3D selection (edited in the Dimensions panel).
 const { editor, open: selectWall, close: deselectWall, setLength, orientation, lock, house } = useWallEditor()
+
+// Drill-down selection wall -> panel -> row(s) (UI only, sunroom/drill.js). The wall part is the
+// wall editor's open wall; panel / rows are kept per wall, so changing the wall resets them.
+const drill = ref({ wall: -1, panel: -1, rows: [] })
+const selection = computed(() => {
+  const wall = editor.open ? editor.wall : -1
+  const d = drill.value
+  return reconcile(d.wall === wall && wall >= 0 ? d : { wall, panel: -1, rows: [] }, props.layout)
+})
+const showElevation = computed(() => selection.value.wall >= 0 && !plan.value.walls[selection.value.wall]?.house)
+function applyDrill(next) {
+  const cur = selection.value
+  if (next.wall !== cur.wall) {
+    if (next.wall >= 0) selectWall(next.wall)
+    else deselectWall()
+  }
+  drill.value = { wall: next.wall, panel: next.panel, rows: [...next.rows] }
+}
 
 const root = ref(null)
 let renderer, labelRenderer, scene, camera, controls, sun, ground, model, dims, picks, resizeObserver, frame
@@ -74,6 +96,7 @@ function init() {
   el.addEventListener('pointerup', onPointerUp)
   el.addEventListener('pointermove', onPointerMove)
   el.addEventListener('pointerleave', onPointerLeave)
+  el.addEventListener('dblclick', onDoubleClick)
   controls.addEventListener('start', cancelFlight) // user takes over the camera
   window.addEventListener('keydown', onKeyDown)
   window.addEventListener('keyup', onKeyUp)
@@ -102,6 +125,7 @@ function loop(now = performance.now()) {
   lastTime = now
   if (!props.active) return
   stepExplode(dt)
+  stepSlides(dt)
   stepFlight(now)
   controls.update()
   renderer.render(scene, camera)
@@ -238,11 +262,56 @@ function hoverOf(mat) {
   return hoverMats.get(mat)
 }
 
+const drillMats = new Map() // base material -> drill-selection clone (selected panel / rows)
+function drillOf(mat) {
+  if (!drillMats.has(mat)) {
+    const h = mat.clone()
+    if (h.emissive) {
+      h.emissive.set(0xe0a100)
+      h.emissiveIntensity = 0.55
+    }
+    if (h.transparent) {
+      // glass is nearly clear: tint and thicken it so the selected lite reads
+      h.color.set(0xf2c14e)
+      h.opacity = Math.max(h.opacity, 0.6)
+    }
+    drillMats.set(mat, h)
+  }
+  return drillMats.get(mat)
+}
+
 function clearHighlightMats() {
   for (const m of highlightMats.values()) m.dispose()
   highlightMats.clear()
   for (const m of hoverMats.values()) m.dispose()
   hoverMats.clear()
+  for (const m of drillMats.values()) m.dispose()
+  drillMats.clear()
+}
+
+/**
+ * Mesh-name test for the drilled panel / rows of the selected wall (names from build3d.js:
+ * p<n>-..., lite j glass p<n>-glass-<j+1>[a|b], the main lite's sash / door leaf / solid infill).
+ */
+function drillMatcher() {
+  const s = selection.value
+  if (s.panel < 0) return null
+  const n = s.panel + 1
+  const prefix = `p${n}-`
+  if (!s.rows.length) return (name) => name.startsWith(prefix)
+  const lw = props.layout.walls.find((w) => w.index === s.wall)
+  const p = lw?.panels[s.panel]
+  if (!p) return null
+  const rows = panelRows(lw, p, props.layout.spec).rows.filter((r) => s.rows.includes(r.role))
+  const glass = new Set(rows.map((r) => r.index + 1))
+  const main = rows.some((r) => MAIN_ROLES.includes(r.role))
+  const mainRe = new RegExp(`^p${n}-(sash|door-leaf|solid-infill|door-handle|sash-handle)`)
+  const glassRe = new RegExp(`^p${n}-glass-(\\d+)[ab]?$`)
+  return (name) => {
+    const g = glassRe.exec(name)
+    if (g) return glass.has(Number(g[1]))
+    return main && mainRe.test(name)
+  }
 }
 
 /** Tint the selected wall's members (or the house wall), the hovered component, and show the wall's pick surface. */
@@ -250,6 +319,7 @@ function applySelection() {
   if (!model || !picks) return
   const sel = editor.open ? editor.wall : -1
   const houseSelected = sel >= 0 && !!plan.value.walls[sel]?.house
+  const drilled = drillMatcher()
   model.traverse((o) => {
     if (!o.isMesh) return
     if (o.userData.baseMaterial === undefined) o.userData.baseMaterial = o.material
@@ -260,13 +330,37 @@ function applySelection() {
     const on = (wallGroup && wallGroup.name === `wall-${sel}`) || (houseSelected && o.name === 'house-wall')
     const hovered = hoverKey !== null && !o.userData.context && componentKey(o) === hoverKey
     const base = o.userData.baseMaterial
-    o.material = hovered ? hoverOf(base) : on ? highlightOf(base) : base
+    const drill = on && wallGroup && drilled && drilled(o.name)
+    o.material = hovered ? hoverOf(base) : drill ? drillOf(base) : on ? highlightOf(base) : base
   })
   for (const m of picks.children) m.material = m.userData.wallIndex === sel ? pickSelected : pickHidden
 }
 
 function pickAt(e) {
-  if (!picks) return -1
+  return pickHit(e)?.wall ?? -1
+}
+
+/**
+ * Drill hit under the pointer: { wall, panel, role }, or null on empty space. The panel / row
+ * come from the hit point on the wall's pick surface mapped to wall-local (s, z) and looked up
+ * in the layout openings and rails — selection only, never fed back into any size.
+ */
+function drillHitAt(e) {
+  const h = pickHit(e)
+  if (!h) return null
+  const lw = props.layout.walls.find((w) => w.index === h.wall)
+  if (!lw || !h.point || !lw.panels.length) return { wall: h.wall, panel: -1, role: null }
+  const q = h.point.clone().sub(h.object.position) // undo the exploded-view offset
+  const s = (q.x - lw.origin.x) * lw.right.x + (q.z - lw.origin.y) * lw.right.y
+  const k = panelAt(lw, s, props.layout.spec.panelJoint)
+  if (k < 0) return { wall: h.wall, panel: -1, role: null }
+  const role = rowAt(panelRows(lw, lw.panels[k], props.layout.spec).rows, q.y)
+  return { wall: h.wall, panel: k, role }
+}
+
+/** { wall, point, object } of the wall pick surface under the pointer, or null. */
+function pickHit(e) {
+  if (!picks) return null
   const r = renderer.domElement.getBoundingClientRect()
   ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1)
   raycaster.setFromCamera(ndc, camera)
@@ -275,15 +369,15 @@ function pickAt(e) {
   const houseIdx = plan.value.walls.findIndex((w) => w.house)
   const targets = houseMesh && houseIdx >= 0 ? [...picks.children, houseMesh] : picks.children
   const hit = raycaster.intersectObjects(targets, false)[0]
-  if (!hit) return -1
-  if (hit.object === houseMesh) return houseIdx
+  if (!hit) return null
+  if (hit.object === houseMesh) return { wall: houseIdx, point: null, object: hit.object }
   // the roof hides the walls under it: a nearer roof hit wins
   const roof = model?.getObjectByName('roof')
   if (roof) {
     const roofHit = raycaster.intersectObject(roof, true)[0]
-    if (roofHit && roofHit.distance < hit.distance - 0.5) return -1
+    if (roofHit && roofHit.distance < hit.distance - 0.5) return null
   }
-  return hit.object.userData.wallIndex
+  return { wall: hit.object.userData.wallIndex, point: hit.point, object: hit.object }
 }
 
 const CLICK_SLOP_PX = 5
@@ -302,9 +396,12 @@ function onPointerUp(e) {
     return
   }
   if (isolated.value) return // wall selection is off while a component is isolated
-  const i = pickAt(e)
-  if (i >= 0) selectWall(i)
-  else deselectWall()
+  applyDrill(drillClick(selection.value, drillHitAt(e), e.ctrlKey || e.metaKey))
+}
+// Double-click drills down: wall -> panel -> row (see sunroom/drill.js)
+function onDoubleClick(e) {
+  if (e.shiftKey || isolated.value) return
+  applyDrill(drillDoubleClick(selection.value, drillHitAt(e)))
 }
 // ---------------------------------------------------------------------------
 // Hover: while Shift is held, the component under the cursor (what Shift+click would isolate)
@@ -347,7 +444,11 @@ function onPointerLeave() {
   setHover(null)
 }
 function onKeyDown(e) {
-  if (e.key === 'Escape' && props.active && isolated.value) exitIsolation()
+  if (e.key === 'Escape' && props.active) {
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target?.tagName ?? '')
+    if (isolated.value) exitIsolation()
+    else if (!typing && drillLevel(selection.value) !== 'none') applyDrill(drillUp(selection.value))
+  }
   if (e.key === 'Shift' && !shiftDown && props.active) {
     shiftDown = true
     updateHover()
@@ -503,6 +604,59 @@ function applyExplodeNow() {
 }
 
 // ---------------------------------------------------------------------------
+// Slider windows open / close (visual only; motion rule from the 225 slider macros, see
+// sunroom/slider.js). build3d.js puts each movable interior sash in a group carrying
+// userData.slide = { dir, travel }; the sash meshes inside it are moved along dir.
+// Key = `${wallIndex}:${panelIndex}` (panel index 0-based, left -> right seen from outside).
+// ---------------------------------------------------------------------------
+const slideGoals = ref({}) // key -> true when the window should be open
+const slidable = ref([]) // keys of the sliders in the current build that can move
+const slideProgress = new Map() // key -> un-eased progress 0..1
+let sliders = [] // [{ key, group }] of the current build
+
+function collectSliders() {
+  sliders = []
+  model?.traverse((o) => {
+    if (!o.userData.slide) return
+    const wm = /^wall-(\d+)$/.exec(o.parent?.name ?? '')
+    if (wm) sliders.push({ key: `${wm[1]}:${o.userData.panel - 1}`, group: o })
+  })
+  slidable.value = sliders.map((s) => s.key)
+  // forget windows that are no longer sliders (type changed, panel removed)
+  const keep = new Set(slidable.value)
+  const goals = Object.fromEntries(Object.entries(slideGoals.value).filter(([k]) => keep.has(k)))
+  if (Object.keys(goals).length !== Object.keys(slideGoals.value).length) slideGoals.value = goals
+  for (const k of [...slideProgress.keys()]) if (!keep.has(k)) slideProgress.delete(k)
+}
+function applySlides() {
+  for (const { key, group } of sliders) {
+    const { dir, travel } = group.userData.slide
+    const x = travel * easeSlide(slideProgress.get(key) ?? 0)
+    for (const m of group.children) m.position.copy(dir).multiplyScalar(x)
+  }
+}
+function stepSlides(dt) {
+  let moved = false
+  for (const { key } of sliders) {
+    const goal = slideGoals.value[key] ? 1 : 0
+    const x = slideProgress.get(key) ?? 0
+    if (x === goal) continue
+    const step = dt / SLIDER_MOTION.seconds
+    slideProgress.set(key, goal > x ? Math.min(1, x + step) : Math.max(0, x - step))
+    moved = true
+  }
+  if (moved) applySlides()
+}
+function setSlide(key, open) {
+  slideGoals.value = { ...slideGoals.value, [key]: open }
+}
+const anySliderClosed = computed(() => slidable.value.some((k) => !slideGoals.value[k]))
+function toggleAllSliders() {
+  const open = anySliderClosed.value
+  slideGoals.value = Object.fromEntries(slidable.value.map((k) => [k, open]))
+}
+
+// ---------------------------------------------------------------------------
 // Camera flights (fit / isolate / restore)
 // ---------------------------------------------------------------------------
 const FLIGHT_MS = 380
@@ -583,6 +737,9 @@ function rebuild() {
   // keep the exploded state and the isolated component across layout edits
   prepareExplode(model, props.layout)
   applyExplodeNow()
+  // keep open windows open across layout edits
+  collectSliders()
+  applySlides()
   if (isolated.value) {
     const key = isolated.value.key
     if (!isolate(key)) {
@@ -642,7 +799,7 @@ watch(
   },
 )
 // label text follows the unit; label + wall highlight follow the selection
-watch([unit, () => editor.open, () => editor.wall], () => {
+watch([unit, () => editor.open, () => editor.wall, selection], () => {
   if (renderer && model) {
     buildDims()
     applySelection()
@@ -661,6 +818,7 @@ onBeforeUnmount(() => {
   renderer?.domElement.removeEventListener('pointerup', onPointerUp)
   renderer?.domElement.removeEventListener('pointermove', onPointerMove)
   renderer?.domElement.removeEventListener('pointerleave', onPointerLeave)
+  renderer?.domElement.removeEventListener('dblclick', onDoubleClick)
   window.removeEventListener('keydown', onKeyDown)
   window.removeEventListener('keyup', onKeyUp)
   window.removeEventListener('blur', onBlur)
@@ -712,6 +870,19 @@ defineExpose({ fit })
           <path d="M12 2.5v4M10.5 4 12 2.5 13.5 4M12 21.5v-4M10.5 20l1.5 1.5 1.5-1.5M2.5 12h4M4 10.5 2.5 12 4 13.5M21.5 12h-4M20 10.5l1.5 1.5-1.5 1.5" />
         </svg>
       </button>
+      <button
+        class="tool"
+        :class="{ on: slidable.length && !anySliderClosed }"
+        :disabled="!slidable.length"
+        :title="!slidable.length ? 'No sliding windows to open (choose Slider for a panel)' : anySliderClosed ? 'Open all sliding windows' : 'Close all sliding windows'"
+        :aria-pressed="slidable.length > 0 && !anySliderClosed"
+        @click="toggleAllSliders"
+      >
+        <svg viewBox="0 0 24 24">
+          <rect x="3.5" y="5" width="17" height="14" rx="1" />
+          <path d="M12 5v14M14.5 12h4M16.5 10l2 2-2 2" />
+        </svg>
+      </button>
     </div>
 
     <div v-if="isolated" class="isolation" role="status">
@@ -724,7 +895,18 @@ defineExpose({ fit })
         <kbd>Esc</kbd>
       </button>
     </div>
-    <div v-else class="hint"><kbd>Shift</kbd> + click a part to isolate it</div>
+    <WallElevation
+      v-if="showElevation && !isolated"
+      class="elev-dock"
+      :layout="layout"
+      :unit="unit"
+      :selection="selection"
+      :slidable="slidable"
+      :slide-goals="slideGoals"
+      @select="applyDrill"
+      @slide="setSlide"
+    />
+    <div v-else-if="!isolated" class="hint">Click a wall to select it · double-click to drill into panels and rows · <kbd>Shift</kbd> + click a part to isolate it</div>
   </div>
 </template>
 
@@ -800,6 +982,11 @@ defineExpose({ fit })
   background: var(--brand);
   color: #fff;
 }
+.tool:disabled {
+  color: #b5bac1;
+  background: transparent;
+  cursor: default;
+}
 .isolation {
   position: absolute;
   top: 12px;
@@ -867,6 +1054,13 @@ kbd {
   border-radius: 3px;
   background: #f6f7f9;
   color: #5b6472;
+}
+.elev-dock {
+  position: absolute;
+  left: 12px;
+  right: 304px; /* clear the Dimensions panel (280px + gutters) */
+  bottom: 12px;
+  z-index: 5;
 }
 .hint {
   position: absolute;
